@@ -2,10 +2,13 @@ package vue;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
@@ -19,8 +22,6 @@ public class CreneauTab {
 	
 	public CreneauTab(JPanel panel) {
 		this.creneauPanel=panel;
-		
-		//panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		this.creneauPanel.setLayout(new GridBagLayout());
 		
 		initComponent();
@@ -103,4 +104,11 @@ public class CreneauTab {
 		c.gridx = 2;
 		creneauPanel.add(button, c);
 	}
+	
+	void showError(String errMessage) {
+        JOptionPane.showMessageDialog(creneauPanel, this, errMessage, 0);
+    }
+	
+	
+	
 }
