@@ -1,23 +1,22 @@
 package modele;
 
-import java.util.UUID;
-
 public class Creneau {
-	private String id = UUID.randomUUID().toString();
 	private DateScolaire date;
-	private HeureScolaire horaire;
+	private HeureScolaire horaireDepart, horaireFin;
 	
-	public Creneau(int jour, int mois, int annee, int heure, int minute) {
+	public Creneau(int jour, int mois, int annee,
+					int heureDepart, int minuteDepart,
+					int heureFin, int minuteFin) {
 		date = new DateScolaire(jour, mois, annee);
-		horaire = new HeureScolaire(heure, minute);
+		horaireDepart = new HeureScolaire(heureDepart, minuteDepart);
+		horaireFin = new HeureScolaire(heureFin, minuteFin);
 	}
-	public Creneau(String jour, String mois, String annee, String heure, String minute) {
+	public Creneau(String jour, String mois, String annee,
+					String heureDepart, String minuteDepart,
+					String heureFin, String minuteFin) {
 		date = new DateScolaire(jour, mois, annee);
-		horaire = new HeureScolaire(heure, minute);
-	}
-	
-	public String getId() {
-		return id;
+		horaireDepart = new HeureScolaire(heureDepart, minuteDepart);
+		horaireFin = new HeureScolaire(heureFin, minuteFin);
 	}
 	
 	public DateScolaire getDate() {
@@ -27,15 +26,31 @@ public class Creneau {
 		this.date = date;
 	}
 	
-	public HeureScolaire getHoraire() {
-		return horaire;
+	public HeureScolaire getHoraireDepart() {
+		return horaireDepart;
 	}
-	public void setHoraire(HeureScolaire horaire) {
-		this.horaire = horaire;
+	public void setHoraireDepart(HeureScolaire horaireDepart) {
+		this.horaireDepart = horaireDepart;
+	}
+	
+	public HeureScolaire getHoraireFin() {
+		return horaireFin;
+	}
+	public void setHoraireFin(HeureScolaire horaireFin) {
+		this.horaireFin = horaireFin;
 	}
 	
 	@Override
 	public String toString() {
-		return date + " " + horaire;
+		return date + " " + horaireDepart + "->" + horaireFin;
+	}
+	
+	public boolean equals(Creneau creneau) {
+		if (date.equals(creneau.getDate()) &&
+			horaireDepart.equals(creneau.getHoraireDepart()) &&
+			horaireFin.equals(creneau.getHoraireFin())) {
+			return true;
+		}
+		return false;
 	}
 }

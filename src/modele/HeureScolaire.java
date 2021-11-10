@@ -48,6 +48,14 @@ class HeureScolaire {
 	
 	@Override
 	public String toString() {
-		return heure + ":" + minute;
+		return String.format("%02d", heure) + ":" + String.format("%02d", minute);
+	}
+	
+	public boolean equals(HeureScolaire heureScolaire) {
+		if (heure == heureScolaire.getHeure() &&
+			minute == heureScolaire.getMinute()) {
+			return true;
+		}
+		return false;
 	}
 }

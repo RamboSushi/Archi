@@ -1,17 +1,11 @@
 package modele;
 
-import java.util.UUID;
-
 public class UE {
-	private String id = UUID.randomUUID().toString(), sigle, nomination;
+	private String sigle, nomination;
 
 	public UE(String sigle, String nomination) {
 		this.sigle = sigle;
 		this.nomination = nomination;
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	public String getSigle() {
@@ -30,6 +24,14 @@ public class UE {
 
 	@Override
 	public String toString() {
-		return sigle + " " + nomination;
+		return sigle + ":" + nomination;
+	}
+	
+	public boolean equals(UE ue) {
+		if (nomination.equals(ue.getNomination()) &&
+			sigle.equals(ue.getSigle())) {
+			return true;
+		}
+		return false;
 	}
 }
