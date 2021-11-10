@@ -1,6 +1,5 @@
 package controlleur;
 
-import com.thoughtworks.xstream.XStream;
 
 import modele.*;
 import vue.*;
@@ -13,9 +12,7 @@ public class Archi {
 		
 		Fenetre fenetre = new Fenetre();
 		
-		XStream xstream = new XStream();
-		String xml = xstream.toXML(ue);
-		//System.out.println(xml);
+		
 		
 		Controlleur controlleur = new Controlleur(classe, ue, creneau, fenetre);
     }
