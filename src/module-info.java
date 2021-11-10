@@ -1,0 +1,3 @@
+module archi {
+	requires xstream;
+}
