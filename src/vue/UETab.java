@@ -3,6 +3,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import controlleur.Controlleur;
 
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,12 +18,13 @@ import modele.*;
 public class UETab {
 
 	private ArrayList<UE> ue = new ArrayList<UE>();
-	
 
 	private JPanel panel;
 
 	//private ArrayList<Button> ueButton = new ArrayList<Button>();
 	private JTextArea text = new JTextArea();
+	
+	JButton create = new JButton("ajouter ue");
 	
 	GridBagConstraints gc = new GridBagConstraints();
 	
@@ -62,9 +64,6 @@ public class UETab {
 		/* weightx définit le nombre de cases en ordonnée */
 		gc.weighty = 4;
 		
-
-		JButton create = new JButton("ajouter ue");
-		create.addActionListener(new ueListener());
 		
 		
 		displayUE();
@@ -78,6 +77,7 @@ public class UETab {
 
 	}
 	
+	
 	private void displayUE() {
 		int a = 0;
 		gc.gridx = 0;
@@ -90,15 +90,20 @@ public class UETab {
 			panel.add(ueButton.get(i),gc);
 			gc.gridy +=1;
 		} 
-		panel.repaint();
+		panel.updateUI();
 	}
 	
+
+	/**************/
+	/*** Getter ***/
+	/**************/
 	
-	 class ueListener implements ActionListener {
-		 public void actionPerformed(ActionEvent e){
-			 String str = text.getText();
-			 ue.add(new UE("a",str));
-			 displayUE();
-		 }
-	 }
+	public JButton getCreateUE() {
+		return this.create;
+	}
+	
+	public String getUE() {
+		return text.getText();
+	}
+	
 }

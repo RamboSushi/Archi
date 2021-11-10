@@ -4,6 +4,9 @@ package vue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+import controlleur.Controlleur;
+
 import java.awt.Color;
 
 import modele.*;
@@ -20,7 +23,8 @@ public class Fenetre extends JFrame{
 	private JPanel creneauPanel = new JPanel();		
 	private JPanel sessionPanel = new JPanel();		
 	
-	
+	private UETab ueTab = new UETab(uePanel);
+	private CreneauTab creneauTab = new CreneauTab(creneauPanel);
 	
 	/*** Constructor ***/
 	public Fenetre(){
@@ -35,9 +39,7 @@ public class Fenetre extends JFrame{
 	}
 	
 	private void initComponent() {
-		UETab ueTab = new UETab(uePanel);
-		CreneauTab creneauTab = new CreneauTab(creneauPanel);
-
+		
 		tab.add("UE", uePanel);
 	    tab.add("Créneaux", creneauPanel);
 	    tab.add("Classes", classePanel);
@@ -49,10 +51,14 @@ public class Fenetre extends JFrame{
 	}
 	
 	
-	public void affiche(Classe classe, UE ue, Creneau creneau) {
-		System.out.println(classe);
-		System.out.println(ue);
-		System.out.println(creneau);
+	public UETab getUETab() {
+		return this.ueTab;
 	}
+	
+//	public void affiche(Classe classe, UE ue, Creneau creneau) {
+//		System.out.println(classe);
+//		System.out.println(ue);
+//		System.out.println(creneau);
+//	}
 	
 }
