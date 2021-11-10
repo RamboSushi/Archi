@@ -16,6 +16,9 @@ public class Controlleur {
 		
 		this.view.getUETab().getCreateUE().addActionListener(new createUEListener()); 
 		
+		this.view.getCreneauTab().AddCreneau().addActionListener(new addCreneauListener()); 
+		this.view.getCreneauTab().DeleteCreneau().addActionListener(new deleteCreneauListener()); 
+		
 		
 		this.view.setVisible(true);
 	}
@@ -39,6 +42,19 @@ public class Controlleur {
 		 public void actionPerformed(ActionEvent e){
 			 String str = view.getUETab().getUE();
 			 System.out.println("aaaaaaaa");
+		}
+	 }
+	class addCreneauListener implements ActionListener {
+		 public void actionPerformed(ActionEvent e){
+			 Creneau creneau = new Creneau(9, 11, 2021, 8, 5);
+			 view.getCreneauTab().printCreneau(creneau);
+		}
+	 }
+	
+	class deleteCreneauListener implements ActionListener {
+		 public void actionPerformed(ActionEvent e){
+			 Creneau creneau = new Creneau(9, 11, 2021, 8, 5);
+			 System.out.println(creneau);
 		}
 	 }
 }

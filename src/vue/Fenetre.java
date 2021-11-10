@@ -55,6 +55,10 @@ public class Fenetre extends JFrame{
 		return this.ueTab;
 	}
 	
+	public CreneauTab getCreneauTab() {
+		return this.creneauTab;
+	}
+	
 //	public void affiche(Classe classe, UE ue, Creneau creneau) {
 //		System.out.println(classe);
 //		System.out.println(ue);
