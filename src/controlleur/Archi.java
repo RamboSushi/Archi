@@ -1,6 +1,5 @@
 package controlleur;
 
-
 import modele.*;
 import vue.*;
 
@@ -12,8 +11,7 @@ public class Archi {
 		
 		Fenetre fenetre = new Fenetre();
 		
-		
-		
+
 		Controlleur controlleur = new Controlleur(classe, ue, creneau, fenetre);
     }
 }
