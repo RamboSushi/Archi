@@ -95,4 +95,8 @@ class DateScolaire {
 		}
 		return false;
 	}
+	
+	public String parse() {
+		return jour + ";" + mois + ";" + annee;
+	}
 }

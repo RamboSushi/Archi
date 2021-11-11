@@ -58,4 +58,8 @@ class HeureScolaire {
 		}
 		return false;
 	}
+	
+	public String parse() {
+		return heure + ";" + minute;
+	}
 }

@@ -42,4 +42,8 @@ class AnneeScolaire {
 		}
 		return false;
 	}
+	
+	public String parse() {
+		return anneeDepart + ";" + (anneeDepart+1);
+	}
 }

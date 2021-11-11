@@ -39,4 +39,8 @@ public class Classe {
 		}
 		return false;
 	}
+	
+	public String parse() {
+		return nomination + ";" + anneeScolaire.parse();
+	}
 }

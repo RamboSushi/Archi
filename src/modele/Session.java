@@ -3,15 +3,15 @@ package modele;
 import java.util.ArrayList;
 
 public class Session {
-	private UE ue;
+	private Ue ue;
 	private Classe classe;
 	private ArrayList<Creneau> creneaux = new ArrayList<>();
 	
-	public Session(UE ue, Classe classe) {
+	public Session(Ue ue, Classe classe) {
 		this.ue = ue;
 		this.classe = classe;
 	}
-	public Session(UE ue, Classe classe, ArrayList<Creneau> creneaux) {
+	public Session(Ue ue, Classe classe, ArrayList<Creneau> creneaux) {
 		this.ue = ue;
 		this.classe = classe;
 		this.creneaux = creneaux;
@@ -61,10 +61,10 @@ public class Session {
 		return null;
 	}
 	
-	public UE getUe() {
+	public Ue getUe() {
 		return ue;
 	}
-	public void setUe(UE ue) {
+	public void setUe(Ue ue) {
 		this.ue = ue;
 	}
 	
@@ -84,9 +84,9 @@ public class Session {
 	
 	@Override
 	public String toString() {
-		String str = new String(ue + " | " + classe + "\r\n");
+		String str = new String(ue + " avec " + classe + "\r\n");
 		for (int i=0; i<creneaux.size(); i++) {
-			str += "   " + creneaux.get(i) + "\r\n";
+			str += "  - " + creneaux.get(i) + "\r\n";
 		}
 		str = str.substring(0, str.length()-2);
 		return str;
@@ -99,5 +99,13 @@ public class Session {
 			return true;
 		}
 		return false;
+	}
+	
+	public String parse() {
+		String str = new String(ue.parse() + ";" + classe.parse());
+		for (int i=0; i<creneaux.size(); i++) {
+			str += ";" + creneaux.get(i).parse();
+		}
+		return str;
 	}
 }

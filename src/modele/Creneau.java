@@ -42,7 +42,7 @@ public class Creneau {
 	
 	@Override
 	public String toString() {
-		return date + " " + horaireDepart + "->" + horaireFin;
+		return date + " de " + horaireDepart + " à " + horaireFin;
 	}
 	
 	public boolean equals(Creneau creneau) {
@@ -52,5 +52,9 @@ public class Creneau {
 			return true;
 		}
 		return false;
+	}
+	
+	public String parse() {
+		return date.parse() + ";" + horaireDepart.parse() + ";" + horaireFin.parse();
 	}
 }
