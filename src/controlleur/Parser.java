@@ -11,7 +11,7 @@ public class Parser {
 	private String path = new String();
 	
 	public Parser() {
-		String OS = new String(System.getProperty("os.name").toLowerCase().toLowerCase());
+		String OS = new String(System.getProperty("os.name").toLowerCase());
 		if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
 			path = Paths.get("").toAbsolutePath().toString() + "/data/";
 		} else if (OS.indexOf("win") >= 0) {
@@ -30,10 +30,10 @@ public class Parser {
 		File file = null;
 		switch(c.getSimpleName()) {
 			case "Classe":
-				file = new File(path+"classe.txt");;
+				file = new File(path+"classe.txt");
 				break;
 			case "Ue":
-				file = new File(path+"ue.txt");;
+				file = new File(path+"ue.txt");
 				break;
 			case "Creneau":
 				file = new File(path+"creneau.txt");
@@ -61,10 +61,10 @@ public class Parser {
 		File file = null;
 		switch(c.getSimpleName()) {
 			case "Classe":
-				file = new File(path+"classe.txt");;
+				file = new File(path+"classe.txt");
 				break;
 			case "Ue":
-				file = new File(path+"ue.txt");;
+				file = new File(path+"ue.txt");
 				break;
 			case "Creneau":
 				file = new File(path+"creneau.txt");
