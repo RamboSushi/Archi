@@ -124,6 +124,9 @@ public class CreneauTab {
 		scrollListCreneau.setViewportView(listCreneau);
 		listCreneau.setLayoutOrientation(JList.VERTICAL);
 		listCreneau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		if (dataCreneauList.size() != 0) {
+			listCreneau.setSelectedIndex(0);
+		}
 		c.gridx = 0;
 		c.gridy = 12;
 		creneauPanel.add(scrollListCreneau, c);
@@ -166,8 +169,6 @@ public class CreneauTab {
 	public ArrayList<String> getDataCreneauList() {
 		return this.dataCreneauList;
 	}
-	
-	
 	
 	public JButton AddCreneau() {
 		return this.ajouter;

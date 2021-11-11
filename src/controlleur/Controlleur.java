@@ -70,16 +70,18 @@ public class Controlleur {
 				 view.getCreneauTab().printError("List Vide");
 			 }
 			 else {
-				 System.out.println(view.getCreneauTab().getCreneau());
 				 int i = 0;
 				 ArrayList<String> list = view.getCreneauTab().getDataCreneauList();
 				 for (String string : list) {
-					if(string.matches("(?i)(bea).*")){
+					 if (list.contains(view.getCreneauTab().getCreneau())){
+						
 						view.getCreneauTab().getDataCreneauList().remove(i);
+						view.getCreneauTab().initComponentJList();
+						break;
 					}
 					i++;
 		         }
-				 view.getCreneauTab().initComponentJList();
+				 
 			 }
 		}
 	 }
