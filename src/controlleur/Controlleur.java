@@ -2,6 +2,7 @@ package controlleur;
 
 import modele.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import vue.*;
 
@@ -44,17 +45,42 @@ public class Controlleur {
 			 System.out.println("aaaaaaaa");
 		}
 	 }
+	
+	
+	
 	class addCreneauListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e){
-			 Creneau creneau = new Creneau(9, 11, 2021, 8, 5);
+			 String day = view.getCreneauTab().getDayCreneau();
+			 String month = view.getCreneauTab().getMonthCreneau();
+			 String year = view.getCreneauTab().getYearCreneau();
+			 String hour_begin = view.getCreneauTab().getHourBeginCreneau();
+			 String hour_end = view.getCreneauTab().getHourEndCreneau();
+			 String minute_begin = view.getCreneauTab().getMinuteBeginCreneau();
+			 String minute_end = view.getCreneauTab().getMinuteEndCreneau();
+			 Creneau creneau = new Creneau(day, month, year, hour_begin, minute_begin);
 			 view.getCreneauTab().printCreneau(creneau);
-		}
+			 view.getCreneauTab().getDataCreneauList().add(creneau.toString());
+			 view.getCreneauTab().initComponentJList();
+		 }
 	 }
 	
 	class deleteCreneauListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e){
-			 Creneau creneau = new Creneau(9, 11, 2021, 8, 5);
-			 System.out.println(creneau);
+			 if (view.getCreneauTab().getCreneauLenght() == 0) {
+				 view.getCreneauTab().printError("List Vide");
+			 }
+			 else {
+				 System.out.println(view.getCreneauTab().getCreneau());
+				 int i = 0;
+				 ArrayList<String> list = view.getCreneauTab().getDataCreneauList();
+				 for (String string : list) {
+					if(string.matches("(?i)(bea).*")){
+						view.getCreneauTab().getDataCreneauList().remove(i);
+					}
+					i++;
+		         }
+				 view.getCreneauTab().initComponentJList();
+			 }
 		}
 	 }
 }
