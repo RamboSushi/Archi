@@ -1,6 +1,6 @@
 package modele;
 
-class HeureScolaire {
+public class HeureScolaire {
 	private int heure, minute;
 	
 	public HeureScolaire(int heure, int minute) throws IllegalArgumentException {

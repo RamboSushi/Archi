@@ -9,15 +9,27 @@ import vue.*;
 
 public class Controlleur {
 	private Fenetre view;
-
+	private Parser parser = new Parser();
+	private ArrayList<Object> creneau_read_parser = parser.read(Creneau.class);
 
 	public Controlleur(Classe classe, Ue ue, Creneau creneau,Session session, Fenetre fenetre) {
 		//fenetre.affiche(classe, ue, creneau)
 		this.view = fenetre;
+		
 		this.view.getUETab().getCreateUE().addActionListener(new createUEListener());
-		this.view.getCreneauTab().AddCreneau().addActionListener(new addCreneauListener());
-		this.view.getCreneauTab().DeleteCreneau().addActionListener(new deleteCreneauListener());
+		
+		
+		for(int i=0;i<creneau_read_parser.size();i++) {
+			view.getCreneauTab().getDataCreneauList().add(((Creneau) creneau_read_parser.get(i)).toString());
+		}
+		
+		
+		this.view.getCreneauTab().addCreneau().addActionListener(new addCreneauListener());
+		this.view.getCreneauTab().deleteCreneau().addActionListener(new deleteCreneauListener());
+
 		this.view.getUETab().getDeleteUE().addActionListener(new deleteUEListener());
+		
+		view.getCreneauTab().initComponentJList();
 		this.view.setVisible(true);
 	}
 
@@ -58,7 +70,7 @@ public class Controlleur {
 
 
 	class addCreneauListener implements ActionListener {
-		 public void actionPerformed(ActionEvent e){
+		 public void actionPerformed(ActionEvent e) {
 			 String day = view.getCreneauTab().getDayCreneau();
 			 String month = view.getCreneauTab().getMonthCreneau();
 			 String year = view.getCreneauTab().getYearCreneau();
@@ -70,25 +82,31 @@ public class Controlleur {
 			 view.getCreneauTab().printCreneau(creneau);
 			 view.getCreneauTab().getDataCreneauList().add(creneau.toString());
 			 view.getCreneauTab().initComponentJList();
+			 parser.write(creneau.parse(), Creneau.class);
 		 }
-	 }
+	}
+	
+	
 
 	class deleteCreneauListener implements ActionListener {
-		 public void actionPerformed(ActionEvent e){
+		 public void actionPerformed(ActionEvent e) {
 			 if (view.getCreneauTab().getCreneauLenght() == 0) {
 				 view.getCreneauTab().printError("List Vide");
 			 }
 			 else {
 				 int i = 0;
 				 ArrayList<String> list = view.getCreneauTab().getDataCreneauList();
-				 for (String string : list) {
-					 if (list.contains(view.getCreneauTab().getCreneau())){
-
+				 String selected = view.getCreneauTab().getCreneau();
+				 System.out.println(selected);
+				 for (i=0;i<view.getCreneauTab().getCreneauLenght();i++) {
+					 System.out.println(list.get(i));
+					 if (list.get(i) == selected){
 						view.getCreneauTab().getDataCreneauList().remove(i);
 						view.getCreneauTab().initComponentJList();
+						System.out.println(i);
+						parser.remove(selected, Creneau.class);
 						break;
 					}
-					i++;
 		         }
 
 			 }

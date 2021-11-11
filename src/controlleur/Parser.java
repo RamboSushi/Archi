@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+
+import modele.*;
 
 public class Parser {
 	private String path = new String();
@@ -95,9 +98,74 @@ public class Parser {
 			writer.write(allstr);
 			writer.close();
 		} catch (IOException e) {
-			System.out.println("Erreur ecriture fichier");
+			System.out.println("Erreur suppression fichier");
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<Object> read(Class<?> c) {
+		BufferedReader reader = null;
+		File file = null;
+		ArrayList<Object> obj = new ArrayList<Object>();
+		switch(c.getSimpleName()) {
+			case "Classe":
+				file = new File(path+"classe.txt");
+				break;
+			case "Ue":
+				file = new File(path+"ue.txt");
+				break;
+			case "Creneau":
+				file = new File(path+"creneau.txt");
+				break;
+			case "Session":
+				file = new File(path+"session.txt");
+				break;
+			default:
+				System.out.println("default");
+				break;
+		}
+		try {
+			file.createNewFile();
+			reader = new BufferedReader(new FileReader(file.getPath()));
+			String[] tokens = null;
+			while(true) {
+				String line = reader.readLine();
+				if (line == null) break;
+				tokens = line.split(";");
+				switch(c.getSimpleName()) {
+					case "Classe":
+						Classe classe = new Classe(tokens[0],tokens[1]);
+						obj.add(classe);
+						continue;
+					case "Ue":
+						Ue ue = new Ue(tokens[0],tokens[1]);
+						obj.add(ue);
+						continue;
+					case "Creneau":
+						Creneau creneau = new Creneau(tokens[0],tokens[1],tokens[2],tokens[3],tokens[4],tokens[5],tokens[6]);
+						obj.add(creneau);
+						continue;
+					case "Session":
+						Ue ueS = new Ue(tokens[0],tokens[1]);
+						Classe classeS = new Classe(tokens[2],tokens[3]);
+						ArrayList<Creneau> creneauxS = new ArrayList<>();
+						for(int i=4; i<tokens.length; i+=7) {
+							Creneau creneauS = new Creneau(tokens[i],tokens[i+1],tokens[i+2],tokens[i+3],tokens[i+4],tokens[i+5],tokens[i+6]);
+							creneauxS.add(creneauS);
+						}
+						Session session = new Session(ueS,classeS,creneauxS);
+						obj.add(session);
+						continue;
+					default:
+						System.out.println("default");
+						continue;
+				}
+			}
+		} catch (IOException e) {
+			System.out.println("Erreur lecture fichier");
+			e.printStackTrace();
+		}
+		return obj;
 	}
 
 	public String getPath() {

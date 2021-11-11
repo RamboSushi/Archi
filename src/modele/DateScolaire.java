@@ -1,6 +1,6 @@
 package modele;
 
-class DateScolaire {
+public class DateScolaire {
 	private int jour, mois, annee;
 	
 	public DateScolaire(int jour, int mois, int annee) throws IllegalArgumentException {

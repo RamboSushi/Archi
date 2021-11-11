@@ -33,6 +33,7 @@ public class CreneauTab {
 	
 	private JButton ajouter = new JButton("ajouter un creneau");
 	private JButton supprimer = new JButton("supprimer un creneau");
+	private JButton load = new JButton("Init Load");
 	private JLabel label = new JLabel();
 	private String[] option_days  = { "01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" };
 	private String[] option_months = { "01","02","03","04","05","06","07","08","09","10","11","12"};
@@ -64,8 +65,10 @@ public class CreneauTab {
 	private void initComponent() {
 		creneauPanel.setLayout(new GridBagLayout());
 		c.fill = GridBagConstraints.HORIZONTAL;
+		
 		initComponentJButton();
 		initComponentJList();
+		
 	}
 	
 	private void initComponentJButton() {
@@ -132,6 +135,10 @@ public class CreneauTab {
 		creneauPanel.add(scrollListCreneau, c);
 	}
 	
+	public JButton loadCreneau() {
+		return this.load;
+	}
+	
 	public void printCreneau(Creneau creneau) {
         JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajouté", 0);
     }
@@ -170,10 +177,10 @@ public class CreneauTab {
 		return this.dataCreneauList;
 	}
 	
-	public JButton AddCreneau() {
+	public JButton addCreneau() {
 		return this.ajouter;
 	}
-	public JButton DeleteCreneau() {
+	public JButton deleteCreneau() {
 		return this.supprimer;
 	}
 
