@@ -3,45 +3,55 @@ package controlleur;
 import modele.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import vue.*;
 
-public class Controlleur {	
+public class Controlleur {
 	private Fenetre view;
 
 
 	public Controlleur(Classe classe, Ue ue, Creneau creneau,Session session, Fenetre fenetre) {
 		//fenetre.affiche(classe, ue, creneau)
 		this.view = fenetre;
-
 		this.view.getUETab().getCreateUE().addActionListener(new createUEListener());
-
 		this.view.getCreneauTab().AddCreneau().addActionListener(new addCreneauListener());
 		this.view.getCreneauTab().DeleteCreneau().addActionListener(new deleteCreneauListener());
-
-
+		this.view.getUETab().getDeleteUE().addActionListener(new deleteUEListener());
 		this.view.setVisible(true);
 	}
 
 
 
-
-	/**
-	 *
-	 * Check if str is correct
-	 *
-	 * @return
-	 * @param str value of UE write by the user
-	 */
-	public void checkUE(String str) {
-
+	public boolean checkNewUE(String sigle, String nomination) {
+		if (sigle.isEmpty() || nomination.isEmpty()) return false;
+		return true;
 	}
 
 
 	class createUEListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e){
-			 String str = view.getUETab().getUE();
-			 System.out.println("aaaaaaaa");
+
+			 String sigle = view.getUETab().getUEsigle();
+			 String nomination = view.getUETab().getUEnomination();
+
+			 if(checkNewUE(sigle, nomination)) {
+				 Ue ue = new Ue(sigle, nomination);
+				 view.getUETab().addNewUE(ue);
+				 view.getUETab().displayUE();
+			 }
+			 else {
+				 view.getUETab().writeErrorMessage("errorCreateUE");
+			 }
+		}
+	 }
+
+	class deleteUEListener implements ActionListener {
+		 public void actionPerformed(ActionEvent e){
+			 int selected = view.getUETab().getIndexListUE();
+
+			 if (selected < 0) view.getUETab().writeErrorMessage("errorDeleteUE");
+			 else view.getUETab().deleteUE(selected);
 		}
 	 }
 

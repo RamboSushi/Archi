@@ -15,10 +15,12 @@ public class Ue {
 	public void setSigle(String sigle) {
 		this.sigle = sigle;
 	}
-	
+
+
 	public String getNomination() {
 		return nomination;
 	}
+
 	public void setNomination(String nomination) {
 		this.nomination = nomination;
 	}
@@ -27,7 +29,7 @@ public class Ue {
 	public String toString() {
 		return sigle + ":" + nomination;
 	}
-	
+
 	public boolean equals(Ue ue) {
 		if (nomination.equals(ue.getNomination()) &&
 			sigle.equals(ue.getSigle())) {
@@ -35,7 +37,7 @@ public class Ue {
 		}
 		return false;
 	}
-	
+
 	public String parse() {
 		return sigle + ";" + nomination;
 	}
