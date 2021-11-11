@@ -17,7 +17,7 @@ import modele.*;
 
 public class UETab {
 
-	private ArrayList<UE> ue = new ArrayList<UE>();
+	private ArrayList<Ue> ue = new ArrayList<Ue>();
 
 	private JPanel panel;
 
@@ -31,10 +31,10 @@ public class UETab {
 	public UETab(JPanel panel) {
 		this.panel=panel;
 		
-		ue.add(new UE("a","a"));
-		ue.add(new UE("b","b"));
-		ue.add(new UE("c","c"));
-		ue.add(new UE("d","d"));
+		ue.add(new Ue("a","a"));
+		ue.add(new Ue("b","b"));
+		ue.add(new Ue("c","c"));
+		ue.add(new Ue("d","d"));
 
 
 		//panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
@@ -48,7 +48,6 @@ public class UETab {
 		
 		
 		/* le parametre fill sert à définir comment le composant sera rempli GridBagConstraints.BOTH permet d'occuper tout l'espace disponible
-		 * horizontalement et verticalement GridBagConstraints.HORIZONTAL maximise horizontalement GridBagConstraints.VERTICAL maximise verticalement
 		 */
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		
@@ -66,7 +65,7 @@ public class UETab {
 		
 		
 		
-		displayUE();
+//		displayUE();
 		gc.gridx = 1;
 		gc.gridy = 0;
 		panel.add(text, gc);
@@ -86,7 +85,7 @@ public class UETab {
 		ArrayList<JButton> ueButton = new ArrayList<JButton>();
 		
 		for(int i = 0; i<ue.size();i++) {
-			ueButton.add(new Button(ue.get(i)));
+//			ueButton.add(new JButton(ue.get(i)));
 			panel.add(ueButton.get(i),gc);
 			gc.gridy +=1;
 		} 
