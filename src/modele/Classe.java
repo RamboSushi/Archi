@@ -1,22 +1,16 @@
 package modele; 
 
-import java.util.UUID;
-
 public class Classe {
-	private String id = UUID.randomUUID().toString(), nomination;
+	private String nomination;
 	private AnneeScolaire anneeScolaire;
 	
-	public Classe(String nomination, int anneeDepart, int anneeFin) {
+	public Classe(String nomination, int anneeDepart) {
 		this.nomination = nomination;
-		this.anneeScolaire = new AnneeScolaire(anneeDepart, anneeFin);
+		this.anneeScolaire = new AnneeScolaire(anneeDepart);
 	}
-	public Classe(String nomination, String anneeDepart, String anneeFin) {
+	public Classe(String nomination, String anneeDepart) {
 		this.nomination = nomination;
-		this.anneeScolaire = new AnneeScolaire(anneeDepart, anneeFin);
-	}
-	
-	public String getId() {
-		return id;
+		this.anneeScolaire = new AnneeScolaire(anneeDepart);
 	}
 	
 	public String getNomination() {
@@ -35,6 +29,18 @@ public class Classe {
 	
 	@Override
 	public String toString() {
-		return nomination + " " + anneeScolaire;
+		return nomination + ":" + anneeScolaire;
+	}
+	
+	public boolean equals(Classe classe) {
+		if (nomination.equals(classe.getNomination()) &&
+			anneeScolaire.equals(anneeScolaire)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String parse() {
+		return nomination + ";" + anneeScolaire.parse();
 	}
 }

@@ -86,4 +86,17 @@ class DateScolaire {
 	public String toString() {
 		return jour + "/" + mois + "/" + annee;
 	}
+	
+	public boolean equals(DateScolaire dateScolaire) {
+		if (jour == dateScolaire.getJour() &&
+			mois == dateScolaire.getMois() &&
+			annee == dateScolaire.getAnnee()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String parse() {
+		return jour + ";" + mois + ";" + annee;
+	}
 }

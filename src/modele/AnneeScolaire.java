@@ -1,24 +1,21 @@
 package modele;
 
 class AnneeScolaire {
-	private int anneeDepart, anneeFin;
+	private int anneeDepart;
 	
-	public AnneeScolaire (int anneeDepart, int anneeFin) throws IllegalArgumentException {
-		if (!this.isValid(anneeDepart, anneeFin)) {
-			throw new IllegalArgumentException("Format anneeDepart-anneeFin non conforme");
+	public AnneeScolaire (int anneeDepart) throws IllegalArgumentException {
+		if (!this.isValid(anneeDepart)) {
+			throw new IllegalArgumentException("Format anneeDepart non conforme");
 		} else {
 			this.anneeDepart = anneeDepart;
-			this.anneeFin = anneeFin;
 		}
 	}
-	public AnneeScolaire (String anneeDepart, String anneeFin) throws IllegalArgumentException {
+	public AnneeScolaire (String anneeDepart) throws IllegalArgumentException {
 		int anneeDepartInt = Integer.parseInt(anneeDepart);
-		int anneeFinInt = Integer.parseInt(anneeFin);
-		if (!this.isValid(anneeDepartInt, anneeFinInt)) {
-			throw new IllegalArgumentException("Format anneeDepart-anneeFin non conforme");
+		if (!this.isValid(anneeDepartInt)) {
+			throw new IllegalArgumentException("Format anneeDepart non conforme");
 		} else {
 			this.anneeDepart = anneeDepartInt;
-			this.anneeFin = anneeFinInt;
 		}
 	}
 
@@ -28,24 +25,25 @@ class AnneeScolaire {
 	public void setAnneeDepart(int anneeDepart) {
 		this.anneeDepart = anneeDepart;
 	}
-
-	public int getAnneeFin() {
-		return anneeFin;
-	}
-	public void setAnneeFin(int anneeFin) {
-		this.anneeFin = anneeFin;
-	}
 	
-	private boolean isValid(int anneeDepart, int anneeFin) {
+	private boolean isValid(int anneeDepart) {
 		if (anneeDepart < 0) return false;
-		if (anneeFin < 0) return false;
-		if (anneeDepart >= anneeFin) return false;
-		if (anneeFin-anneeDepart != 1) return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return this.anneeDepart + "-" + this.anneeFin;
+		return anneeDepart + "-" + (anneeDepart+1);
+	}
+	
+	public boolean equals(AnneeScolaire anneeScolaire) {
+		if (anneeDepart == anneeScolaire.getAnneeDepart()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String parse() {
+		return anneeDepart + ";" + (anneeDepart+1);
 	}
 }
