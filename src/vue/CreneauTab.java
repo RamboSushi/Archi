@@ -49,7 +49,7 @@ public class CreneauTab {
 	private SpinnerModel value =  new SpinnerNumberModel(year,year-10,year+10,1);  
 	private JSpinner spinner_years = new JSpinner(value);
 	private ArrayList<String> dataCreneauList = new ArrayList<String>();
-	
+	private ArrayList<Creneau> dbCreneau = new ArrayList<Creneau>();
 	private JScrollPane scrollListCreneau = new JScrollPane();
 	private JList listCreneau = new JList(dataCreneauList.toArray(new String[dataCreneauList.size()]));
 	
@@ -175,6 +175,9 @@ public class CreneauTab {
 	}
 	public ArrayList<String> getDataCreneauList() {
 		return this.dataCreneauList;
+	}
+	public ArrayList<Creneau> getDBCreneauList() {
+		return this.dbCreneau;
 	}
 	
 	public JButton addCreneau() {

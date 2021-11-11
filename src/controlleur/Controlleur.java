@@ -21,6 +21,7 @@ public class Controlleur {
 		
 		for(int i=0;i<creneau_read_parser.size();i++) {
 			view.getCreneauTab().getDataCreneauList().add(((Creneau) creneau_read_parser.get(i)).toString());
+			view.getCreneauTab().getDBCreneauList().add(((Creneau) creneau_read_parser.get(i)));
 		}
 		
 		
@@ -81,6 +82,7 @@ public class Controlleur {
 			 Creneau creneau = new Creneau(day, month, year, hour_begin, minute_begin,hour_end, minute_end);
 			 view.getCreneauTab().printCreneau(creneau);
 			 view.getCreneauTab().getDataCreneauList().add(creneau.toString());
+			 view.getCreneauTab().getDBCreneauList().add(creneau);
 			 view.getCreneauTab().initComponentJList();
 			 parser.write(creneau.parse(), Creneau.class);
 		 }
@@ -94,17 +96,13 @@ public class Controlleur {
 				 view.getCreneauTab().printError("List Vide");
 			 }
 			 else {
-				 int i = 0;
-				 ArrayList<String> list = view.getCreneauTab().getDataCreneauList();
 				 String selected = view.getCreneauTab().getCreneau();
-				 System.out.println(selected);
-				 for (i=0;i<view.getCreneauTab().getCreneauLenght();i++) {
-					 System.out.println(list.get(i));
-					 if (list.get(i) == selected){
+				 for (int i=0;i<view.getCreneauTab().getCreneauLenght();i++) {
+					 if (view.getCreneauTab().getDataCreneauList().get(i) == selected){
 						view.getCreneauTab().getDataCreneauList().remove(i);
 						view.getCreneauTab().initComponentJList();
-						System.out.println(i);
-						parser.remove(selected, Creneau.class);
+						Creneau c = view.getCreneauTab().getDBCreneauList().get(i);
+						parser.remove(c.parse(), Creneau.class);
 						break;
 					}
 		         }
