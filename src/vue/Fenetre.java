@@ -5,11 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import controlleur.Controlleur;
-
 import java.awt.Color;
-
-import modele.*;
 
 public class Fenetre extends JFrame{
 	

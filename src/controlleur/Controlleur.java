@@ -16,7 +16,7 @@ public class Controlleur {
 		this.view = fenetre;
 		
 		this.view.getUETab().getCreateUE().addActionListener(new createUEListener()); 
-		
+		this.view.getUETab().getDeleteUE().addActionListener(new deleteUEListener()); 
 		
 		this.view.setVisible(true);
 	}
@@ -49,8 +49,17 @@ public class Controlleur {
 				 view.getUETab().displayUE();
 			 }
 			 else {
-				 view.getUETab().writeErrorMessage();
+				 view.getUETab().writeErrorMessage("errorCreateUE");
 			 }
+		}
+	 }
+	
+	class deleteUEListener implements ActionListener {
+		 public void actionPerformed(ActionEvent e){
+			 int selected = view.getUETab().getIndexListUE();
+			 
+			 if (selected < 0) view.getUETab().writeErrorMessage("errorDeleteUE");
+			 else view.getUETab().deleteUE(selected);
 		}
 	 }
 }
