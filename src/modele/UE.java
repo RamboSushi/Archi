@@ -21,15 +21,18 @@ public class UE {
 		this.sigle = sigle;
 	}
 	
+	
 	public String getNomination() {
 		return nomination;
 	}
+	
 	public void setNomination(String nomination) {
 		this.nomination = nomination;
 	}
 
 	@Override
 	public String toString() {
-		return sigle + " " + nomination;
+		return this.sigle + " | " + this.nomination;
+		
 	}
 }

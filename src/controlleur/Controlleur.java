@@ -2,6 +2,7 @@ package controlleur;
 
 import modele.*;
 import java.awt.event.ActionListener;
+import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import vue.*;
 
@@ -27,18 +28,29 @@ public class Controlleur {
 	 * 
 	 * Check if str is correct 
 	 * 
-	 * @return 
-	 * @param str value of UE write by the user
+	 * @return boolean 
+	 * @param str : value of UE write by the user
 	 */
-	public void checkUE(String str) {
-		
+	public boolean checkNewUE(String sigle, String nomination) {
+		if (sigle.isEmpty() || nomination.isEmpty()) return false;
+		return true;
 	}
 	
 	
 	class createUEListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e){
-			 String str = view.getUETab().getUE();
-			 System.out.println("aaaaaaaa");
+			 
+			 String sigle = view.getUETab().getUEsigle();
+			 String nomination = view.getUETab().getUEnomination();
+
+			 if(checkNewUE(sigle, nomination)) {
+				 UE ue = new UE(sigle, nomination);
+				 view.getUETab().addNewUE(ue);
+				 view.getUETab().displayUE();
+			 }
+			 else {
+				 view.getUETab().writeErrorMessage();
+			 }
 		}
 	 }
 }

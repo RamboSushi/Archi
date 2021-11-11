@@ -35,7 +35,6 @@ public class Fenetre extends JFrame{
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    this.getContentPane().setBackground(Color.white);
 	    initComponent();
-	    //init_creneau_Component();
 	}
 	
 	private void initComponent() {
@@ -54,11 +53,5 @@ public class Fenetre extends JFrame{
 	public UETab getUETab() {
 		return this.ueTab;
 	}
-	
-//	public void affiche(Classe classe, UE ue, Creneau creneau) {
-//		System.out.println(classe);
-//		System.out.println(ue);
-//		System.out.println(creneau);
-//	}
 	
 }
