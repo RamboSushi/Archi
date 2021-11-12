@@ -107,11 +107,10 @@ public class UETab {
 		c.gridy = a;
 
 		listModel.clear();
-		//ArrayList<JButton> ueButton = new ArrayList<JButton>();
-		System.out.println(ue.size());
+		
+		//System.out.println(ue.size());
 		for(int i = 0; i<ue.size();i++) {
 			listModel.addElement(ue.get(i));
-			//gc.gridy +=1;
 		}
 		panel1.repaint();
 		//panel1.updateUI();
@@ -119,7 +118,7 @@ public class UETab {
 
 	public void writeErrorMessage(String str) {
 		if( str.equals("errorCreateUE") )
-			JOptionPane.showMessageDialog(panel1, "Impossible de crï¿½er une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(panel1, "Impossible de créer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 		else if( str.equals("errorDeleteUE") )
 			JOptionPane.showMessageDialog(panel1, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
