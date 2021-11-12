@@ -22,6 +22,7 @@ public class Fenetre extends JFrame{
 	private UETab ueTab = new UETab(uePanel);
 	private CreneauTab creneauTab = new CreneauTab(creneauPanel);
 	private ClasseTab classeTab = new ClasseTab(classePanel);
+	private SessionTab sessionTab = new SessionTab(sessionPanel);
 
 	/*** Constructor ***/
 	public Fenetre(){
@@ -37,7 +38,7 @@ public class Fenetre extends JFrame{
 	private void initComponent() {
 
 		tab.add("UE", uePanel);
-	    tab.add("Créneaux", creneauPanel);
+	    tab.add("Crï¿½neaux", creneauPanel);
 	    tab.add("Classes", classePanel);
 	    tab.add("Session", sessionPanel);
 	    tab.setForeground(new Color(100,100,100));
@@ -56,5 +57,9 @@ public class Fenetre extends JFrame{
 	
 	public ClasseTab getClasseTab() {
 		return this.classeTab;
+	}
+	
+	public SessionTab getSessionTab() {
+		return this.sessionTab;
 	}
 }
