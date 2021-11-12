@@ -52,7 +52,7 @@ public class UETab {
 	private GridBagConstraints c = new GridBagConstraints();
 
 	public UETab(JPanel panel) {
-		this.uePanel=panel;		
+		this.uePanel=panel;
 		this.uePanel.setLayout(new GridBagLayout());
 
 		initComponent();

@@ -29,17 +29,21 @@ public class CreneauTab {
 	private JButton ajouter = new JButton("ajouter un creneau");
 	private JButton supprimer = new JButton("supprimer un creneau");
 	private JButton load = new JButton("Init Load");
+	
 	private JLabel label = new JLabel();
+	
 	private String[] option_days  = { "01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" };
 	private String[] option_months = { "01","02","03","04","05","06","07","08","09","10","11","12"};
 	private String[] option_hours = { "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24" };
 	private String[] option_minutes = { "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60" };
+	
 	private JComboBox box_days = new JComboBox(option_days);
 	private JComboBox box_months = new JComboBox(option_months);
 	private JComboBox box_hour_begin = new JComboBox(option_hours);
 	private JComboBox box_hour_end = new JComboBox(option_hours);
 	private JComboBox box_minute_begin = new JComboBox(option_minutes);
 	private JComboBox box_minute_end = new JComboBox(option_minutes);
+	
 	private int year = ZonedDateTime.now(ZoneId.of("CET")).getYear();
 	private SpinnerModel value =  new SpinnerNumberModel(year,year-10,year+10,1);  
 	private JSpinner spinner_years = new JSpinner(value);
@@ -55,20 +59,14 @@ public class CreneauTab {
 	public CreneauTab(JPanel panel) {
 		this.creneauPanel=panel;
 		this.creneauPanel.setLayout(new GridBagLayout());
+		
 		initComponent();
 	}
 	
 	private void initComponent() {
-		creneauPanel.setLayout(new GridBagLayout());
+		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		initComponentJButton();
-		displayCreneau();
-		
-	}
-	
-	private void initComponentJButton() {
-		c.fill = GridBagConstraints.HORIZONTAL;
 		label = new JLabel("Jour :");
 		c.gridx = 0;
 		c.gridy = 1;
@@ -122,6 +120,9 @@ public class CreneauTab {
 		c.gridx = 0;
 		c.gridy = 12;
 		creneauPanel.add(scrollListCreneau, c);
+	
+		displayCreneau();
+		
 	}
 	
 	public void displayCreneau() {
@@ -135,16 +136,28 @@ public class CreneauTab {
 		//panel1.updateUI();
 	}
 	
-	public JButton loadCreneau() {
-		return this.load;
-	}
-	
 	public void printCreneau(Creneau creneau) {
         JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajout�", JOptionPane.INFORMATION_MESSAGE);
     }
 	public void printError(String msg) {
         JOptionPane.showMessageDialog(creneauPanel, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
     }
+	
+	/**************/
+	/*** Setter ***/
+	/**************/
+	
+	public void setNewCreneau(Creneau creneau) {
+		this.creneau.add(creneau);
+	}
+
+	public void setDeleteCreneau(int index) {
+		this.creneau.remove(index);
+	}
+	
+	/**************/
+	/*** Getter ***/
+	/**************/
 	
 	public String getDayCreneau() {
 		return this.box_days.getSelectedItem().toString();
@@ -178,14 +191,6 @@ public class CreneauTab {
 	
 	public JButton deleteCreneau() {
 		return this.supprimer;
-	}
-	
-	public void addNewCreneau(Creneau creneau) {
-		this.creneau.add(creneau);
-	}
-
-	public void deleteCreneau(int index) {
-		this.creneau.remove(index);
 	}
 	
 	public int getIndexListCreneau() {

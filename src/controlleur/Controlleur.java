@@ -96,7 +96,7 @@ public class Controlleur {
 			
 			Creneau creneau = new Creneau(day, month, year, hour_begin, minute_begin,hour_end, minute_end);
 
-			view.getCreneauTab().addNewCreneau(creneau);
+			view.getCreneauTab().setNewCreneau(creneau);
 			view.getCreneauTab().displayCreneau();
 			parser.write(creneau.parse(), Creneau.class);
 			
@@ -112,7 +112,7 @@ public class Controlleur {
 			if (selected >= 0) {
 				Creneau creneau = view.getCreneauTab().getDataCreneauList().get(selected);
 				parser.remove(creneau.parse(), Creneau.class);
-				view.getCreneauTab().deleteCreneau(selected);
+				view.getCreneauTab().setDeleteCreneau(selected);
 				view.getCreneauTab().displayCreneau();
 			}
 			else {
