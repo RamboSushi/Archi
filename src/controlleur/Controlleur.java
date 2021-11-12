@@ -10,15 +10,18 @@ import vue.*;
 public class Controlleur {
 	private Fenetre view;
 	private Parser parser = new Parser();
-	private ArrayList<Object> creneau_read_parser = parser.read(Creneau.class);
-
-	private Parser parserUE = new Parser();
-	private ArrayList<Object> ue_read_parser = parserUE.read(Ue.class);
+	
+	private ArrayList<Object> creneau_read_parser;
+	private ArrayList<Object> ue_read_parser;
 
 	
-	public Controlleur(Classe classe, Ue ue, Creneau creneau,Session session, Fenetre fenetre) {
-		//fenetre.affiche(classe, ue, creneau)
+	public Controlleur(Fenetre fenetre, Parser parser) {
+		this.parser = parser;
 		this.view = fenetre;
+		
+		creneau_read_parser = parser.read(Creneau.class);
+		//classe_read_parser = parser.read(Classe.class);
+		ue_read_parser = parser.read(Ue.class);
 		
 		this.view.getUETab().getCreateUE().addActionListener(new createUEListener());
 		
@@ -61,7 +64,7 @@ public class Controlleur {
 				 Ue ue = new Ue(sigle, nomination);
 				 view.getUETab().addNewUE(ue);
 				 view.getUETab().displayUE();
-				 parserUE.write(ue.parse(), Ue.class);
+				 parser.write(ue.parse(), Ue.class);
 			 }
 			 else {
 				 view.getUETab().writeErrorMessage("errorCreateUE");  

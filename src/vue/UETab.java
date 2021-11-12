@@ -57,27 +57,15 @@ public class UETab {
 
 	public UETab(JPanel panel) {
 		this.panel=panel;
-		//this.panel.setLayout(new GridLayout());
+		
 		this.panel.setLayout(new GridBagLayout());
 
-
-		//panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
-
-		//this.panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		initComponent();
 	}
 
 	private void initComponent() {
-//		ue.add(new Ue("a","b"));
-//		ue.add(new Ue("b","b"));
-//		ue.add(new Ue("c","c"));
-//		ue.add(new Ue("d","d"));
 
-		;
-		//GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-
-
 
 		c.gridx = 1;
 		c.gridy = 1;
@@ -108,11 +96,6 @@ public class UETab {
 		c.gridx = 1;
 		c.gridy = 8;
 		panel.add(scrollListUE, c);
-
-//		c.gridx = 1;
-//		c.gridy = 6;
-//		c.weighty = 0.1;
-//		panel.add(listeUE, c);
 
 		displayUE();
 
