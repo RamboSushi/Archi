@@ -2,15 +2,11 @@ package vue;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -19,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -27,7 +22,6 @@ import javax.swing.SpinnerNumberModel;
 import modele.*;
 
 public class CreneauTab {
-	
 
 	private JPanel creneauPanel;
 	
@@ -52,7 +46,6 @@ public class CreneauTab {
 	private ArrayList<Creneau> dbCreneau = new ArrayList<Creneau>();
 	private JScrollPane scrollListCreneau = new JScrollPane();
 	private JList listCreneau = new JList(dataCreneauList.toArray(new String[dataCreneauList.size()]));
-	
 	
 	private GridBagConstraints c = new GridBagConstraints();
 	
@@ -84,14 +77,14 @@ public class CreneauTab {
 		creneauPanel.add(label, c);
 		c.gridy = 4;
 		creneauPanel.add(box_months, c);
-		label = new JLabel("Année :");
+		label = new JLabel("Annï¿½e :");
 		c.gridy = 5;
 		creneauPanel.add(label, c);
 		c.gridy = 6;
 		JFormattedTextField spin=((JSpinner.DefaultEditor)spinner_years.getEditor()).getTextField();
 		spin.setEditable(false);
 		creneauPanel.add(spinner_years, c);
-		label = new JLabel("Heure début :");
+		label = new JLabel("Heure dï¿½but :");
 		c.gridy = 7;
 		creneauPanel.add(label, c);
 		c.gridy = 8;
@@ -101,7 +94,7 @@ public class CreneauTab {
 		creneauPanel.add(label, c);
 		c.gridy = 10;
 		creneauPanel.add(box_hour_end, c);
-		label = new JLabel("Minute début :");
+		label = new JLabel("Minute dï¿½but :");
 		c.fill = GridBagConstraints.HORIZONTAL; 
 		c.gridx = 2;
 		c.gridy = 7;
@@ -140,7 +133,7 @@ public class CreneauTab {
 	}
 	
 	public void printCreneau(Creneau creneau) {
-        JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajouté", 0);
+        JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajoutï¿½", 0);
     }
 	public void printError(String msg) {
         JOptionPane.showMessageDialog(creneauPanel, msg, "Error", 0);
@@ -186,6 +179,4 @@ public class CreneauTab {
 	public JButton deleteCreneau() {
 		return this.supprimer;
 	}
-
-	
 }
