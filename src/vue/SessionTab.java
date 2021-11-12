@@ -72,47 +72,43 @@ public class SessionTab {
 	}
 	
 	private void initComponent() {
-		sessionPanel.setLayout(new GridBagLayout());
+		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		initComponentJButton();
-		displayUe();
-		displayClasse();
-		displayCreneau();
-		displaySession();
-		
-	}
-	
-	private void initComponentJButton() {
-		c.fill = GridBagConstraints.HORIZONTAL;
 		label = new JLabel("UE :");
 		c.gridx = 0;
 		c.gridy = 0;
 		sessionPanel.add(label, c);
+		
 		scrollListSessionUe.setViewportView(listUe);
 		listUe.setLayoutOrientation(JList.VERTICAL);
 		listUe.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //		listUe.setPreferredSize(new Dimension(200, 200));
 		c.gridy = 1;
 		sessionPanel.add(scrollListSessionUe, c);
+		
 		label = new JLabel("Nom de la Formation :");
 		c.gridx = 1;
 		c.gridy = 0;
 		sessionPanel.add(label, c);
+		
 		scrollListSessionClasse.setViewportView(listClasse);
 		listClasse.setLayoutOrientation(JList.VERTICAL);
 		listClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridy = 1;
 		sessionPanel.add(scrollListSessionClasse, c);
+		
 		label = new JLabel("Session :");
 		c.gridx = 1;
 		c.gridy = 5;
 		sessionPanel.add(label, c);
+		
 		scrollListSession.setViewportView(listSession);
 		listSession.setLayoutOrientation(JList.VERTICAL);
 		listSession.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridx = 1;
 		c.gridy = 6;
+		
 		sessionPanel.add(scrollListSession, c);
 		label = new JLabel("Creneau :");
 		c.gridx = 0;
@@ -129,6 +125,11 @@ public class SessionTab {
 		c.gridx = 1;
 		sessionPanel.add(supprimer, c);
 		
+		//initComponentJButton();
+		displayUe();
+		displayClasse();
+		displayCreneau();
+		displaySession();
 		
 	}
 	
@@ -200,15 +201,6 @@ public class SessionTab {
 	public String getSession() {
 		return this.listSession.getSelectedValue().toString();
 	}
-//	public int getClasseLenght() {
-//		return this.dataClasseList.size();
-//	}
-//	public ArrayList<String> getDataClasseList() {
-//		return this.dataClasseList;
-//	}
-//	public ArrayList<Classe> getDBClasseList() {
-//		return this.dbClasse;
-//	}
 	
 	/**************/
 	/*** Setter ***/
@@ -230,9 +222,11 @@ public class SessionTab {
 	public ArrayList<Ue> getDataUeList() {
 		return this.ue;
 	}
+	
 	public ArrayList<Classe> getDataClasseList() {
 		return this.classe;
 	}
+	
 	public ArrayList<Creneau> getDataCreneauList() {
 		return this.creneau;
 	}
@@ -248,9 +242,10 @@ public class SessionTab {
 		return this.supprimer;
 	}
 	
-
-	public int getIndexListSession() {
-		return listSession.getSelectedIndex();
+	public int getIndexListUE() {
+		return listUe.getSelectedIndex();
 	}
-	
+	public int getIndexListClasse() {
+		return listClasse.getSelectedIndex();
+	}
 }

@@ -72,9 +72,17 @@ public class Controlleur {
 			
 			if(!(sigle.isEmpty() || nomination.isEmpty())){
 				Ue ue = new Ue(sigle, nomination);
+				
+				//write in file
+				parser.write(ue.parse(), Ue.class);
+				
+				//update display UETab
 				view.getUETab().setNewUE(ue);
 				view.getUETab().displayUE();
-				parser.write(ue.parse(), Ue.class);
+				
+				//update display SessionTab
+				view.getSessionTab().displayUe();
+				view.getSessionTab().getDataUeList().add(ue);
 			}
 			else {
 				view.getUETab().writeErrorMessage("errorCreateUE");  
@@ -88,9 +96,18 @@ public class Controlleur {
 
 			if (selected >= 0) {
 				Ue ue = view.getUETab().getDataUEList().get(selected);
+				
+				//write in file
 				parser.remove(ue.parse(), Ue.class);
+				
+				//update display UETab
 				view.getUETab().setDeleteUE(selected);
 				view.getUETab().displayUE();
+				
+				//update display SessionTab
+				view.getSessionTab().getDataUeList().remove(ue);
+				view.getSessionTab().displayUe();
+				
 			}
 			else {
 				view.getUETab().writeErrorMessage("errorDeleteUE");
@@ -114,10 +131,18 @@ public class Controlleur {
 			
 			Creneau creneau = new Creneau(day, month, year, hour_begin, minute_begin,hour_end, minute_end);
 
-			view.getCreneauTab().setNewCreneau(creneau);
-			view.getCreneauTab().displayCreneau();
+			//write in file
 			parser.write(creneau.parse(), Creneau.class);
 			
+			//update display CreneauTab
+			view.getCreneauTab().setNewCreneau(creneau);
+			view.getCreneauTab().displayCreneau();
+			
+			//update display SessionTab
+			view.getSessionTab().getDataCreneauList().add(creneau);
+			view.getSessionTab().displayCreneau();
+			
+			//show informational message
 			view.getCreneauTab().printCreneau(creneau);
 			
 		}
@@ -129,9 +154,17 @@ public class Controlleur {
 			
 			if (selected >= 0) {
 				Creneau creneau = view.getCreneauTab().getDataCreneauList().get(selected);
+				
+				//write in file
 				parser.remove(creneau.parse(), Creneau.class);
+				
+				//update display CreneauTab
 				view.getCreneauTab().setDeleteCreneau(selected);
 				view.getCreneauTab().displayCreneau();
+				
+				//update display SessionTab
+				view.getSessionTab().getDataCreneauList().remove(creneau);
+				view.getSessionTab().displayCreneau();
 			}
 			else {
 				view.getCreneauTab().printError("Impossible de supprimer un creneau");
@@ -151,9 +184,17 @@ public class Controlleur {
 			
 			if(!formation.isEmpty()) {
 				Classe classe = new Classe(formation, year);
+				
+				//write in file
+				parser.write(classe.parse(), Classe.class);
+				
+				//update display ClasseTab
 				view.getClasseTab().setNewClasse(classe);
 				view.getClasseTab().displayClasse();
-				parser.write(classe.parse(), Classe.class);
+				
+				//update display SessionTab
+				view.getSessionTab().getDataClasseList().add(classe);
+				view.getSessionTab().displayClasse();
 			}
 			else {
 				view.getClasseTab().writeErrorMessage("errorCreateClasse");  
@@ -167,9 +208,17 @@ public class Controlleur {
 			
 			if (selected >= 0) {
 				Classe classe = view.getClasseTab().getDataClasseList().get(selected);
+				
+				//write in file
 				parser.remove(classe.parse(), Classe.class);
+				
+				//update display ClasseTab
 				view.getClasseTab().setDeleteClasse(selected);
 				view.getClasseTab().displayClasse();
+				
+				//update display SessionTab
+				view.getSessionTab().getDataClasseList().remove(classe);
+				view.getSessionTab().displayClasse();
 			}
 			else {
 				view.getClasseTab().writeErrorMessage("errorDeleteClasse");
@@ -189,6 +238,9 @@ public class Controlleur {
 	
 	class deleteSessionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
+			
+			int selectedUe = view.getSessionTab().getIndexListUE();
+			int selectedClasse = view.getSessionTab().getIndexListClasse();
 			
 		}
 	}
