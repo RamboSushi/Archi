@@ -91,8 +91,8 @@ public class Controlleur {
 				view.getUETab().displayUE();
 				
 				//update display SessionTab
-				view.getSessionTab().displayUe();
 				view.getSessionTab().getDataUeList().add(ue);
+				view.getSessionTab().displayUe();
 				
 				view.getUETab().writeMessage("successfullycreateUE");  
 			}
