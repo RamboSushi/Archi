@@ -1,6 +1,6 @@
 package modele;
 
-class AnneeScolaire {
+public class AnneeScolaire {
 	private int anneeDepart;
 	
 	public AnneeScolaire (int anneeDepart) throws IllegalArgumentException {
@@ -44,6 +44,6 @@ class AnneeScolaire {
 	}
 	
 	public String parse() {
-		return anneeDepart + ";" + (anneeDepart+1);
-	}
+        return String.valueOf(anneeDepart);
+    }
 }

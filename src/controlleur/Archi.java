@@ -36,15 +36,15 @@ public class Archi {
 		System.out.println(creneau1.parse());
 		System.out.println(session.parse());
 
-		Parser parser = new Parser();
-		parser.write(ue.parse(), Ue.class);
-		parser.write(classe.parse(), Classe.class);
-		parser.write(creneau1.parse(), Creneau.class);
-		parser.write(creneau2.parse(), Creneau.class);
-		parser.write(creneau2.parse(), Creneau.class);
-		parser.write(creneau3.parse(), Creneau.class);
-		parser.write(session.parse(), Session.class);
-
-		parser.remove(creneau2.parse(), Creneau.class);
+//		Parser parser = new Parser();
+//		parser.write(ue.parse(), Ue.class);
+//		parser.write(classe.parse(), Classe.class);
+//		parser.write(creneau1.parse(), Creneau.class);
+//		parser.write(creneau2.parse(), Creneau.class);
+//		parser.write(creneau2.parse(), Creneau.class);
+//		parser.write(creneau3.parse(), Creneau.class);
+//		parser.write(session.parse(), Session.class);
+//
+//		parser.remove(creneau2.parse(), Creneau.class);
 	}
 }
