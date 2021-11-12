@@ -45,11 +45,9 @@ public class ClasseTab {
 	
 	private JScrollPane scrollListClasse = new JScrollPane();
 	
-	//private ArrayList<String> dataClasseList = new ArrayList<String>();
 	private ArrayList<Classe> classe = new ArrayList<Classe>();
 	private DefaultListModel<Classe> listModel = new DefaultListModel<Classe>();
 	private JList<Classe> listClasse = new JList<Classe>(listModel);
-	
 	
 	private GridBagConstraints c = new GridBagConstraints();
 	
@@ -61,16 +59,9 @@ public class ClasseTab {
 	}
 	
 	private void initComponent() {
-		classePanel.setLayout(new GridBagLayout());
+		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		initComponentJButton();
-		displayClasse();
-		
-	}
-	
-	private void initComponentJButton() {
-		c.fill = GridBagConstraints.HORIZONTAL;
 		label = new JLabel("Année scolaire (Début) :");
 		c.gridx = 0;
 		c.gridy = 1;
@@ -98,8 +89,9 @@ public class ClasseTab {
 		c.gridy = 12;
 		classePanel.add(scrollListClasse, c);
 		
+		displayClasse();
 	}
-	
+
 	public void displayClasse() {
 		listModel.clear();
 		
