@@ -62,8 +62,8 @@ public class Controlleur {
 
 			String sigle = view.getUETab().getUEsigle();
 			String nomination = view.getUETab().getUEnomination();
-
-			if(sigle.isEmpty() || nomination.isEmpty()) {
+			
+			if(sigle.isEmpty() || nomination.isEmpty()){
 				Ue ue = new Ue(sigle, nomination);
 				view.getUETab().setNewUE(ue);
 				view.getUETab().displayUE();
