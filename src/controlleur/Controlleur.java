@@ -12,6 +12,10 @@ public class Controlleur {
 	private Parser parser = new Parser();
 	private ArrayList<Object> creneau_read_parser = parser.read(Creneau.class);
 
+	private Parser parserUE = new Parser();
+	private ArrayList<Object> ue_read_parser = parserUE.read(Ue.class);
+
+	
 	public Controlleur(Classe classe, Ue ue, Creneau creneau,Session session, Fenetre fenetre) {
 		//fenetre.affiche(classe, ue, creneau)
 		this.view = fenetre;
@@ -23,6 +27,10 @@ public class Controlleur {
 			view.getCreneauTab().getDataCreneauList().add(((Creneau) creneau_read_parser.get(i)).toString());
 			view.getCreneauTab().getDBCreneauList().add(((Creneau) creneau_read_parser.get(i)));
 		}
+		for(int i=0;i<ue_read_parser.size();i++) {
+			view.getUETab().getDataUEList().add(((Ue) ue_read_parser.get(i)));
+			//view.getUETab().getDBCreneauList().add(((Creneau) creneau_read_parser.get(i)));
+		}
 		
 		
 		this.view.getCreneauTab().addCreneau().addActionListener(new addCreneauListener());
@@ -31,6 +39,7 @@ public class Controlleur {
 		this.view.getUETab().getDeleteUE().addActionListener(new deleteUEListener());
 		
 		view.getCreneauTab().initComponentJList();
+		view.getUETab().displayUE();
 		this.view.setVisible(true);
 	}
 
@@ -52,9 +61,10 @@ public class Controlleur {
 				 Ue ue = new Ue(sigle, nomination);
 				 view.getUETab().addNewUE(ue);
 				 view.getUETab().displayUE();
+				 parserUE.write(ue.parse(), Ue.class);
 			 }
 			 else {
-				 view.getUETab().writeErrorMessage("errorCreateUE");
+				 view.getUETab().writeErrorMessage("errorCreateUE");  
 			 }
 		}
 	 }
@@ -62,9 +72,16 @@ public class Controlleur {
 	class deleteUEListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e){
 			 int selected = view.getUETab().getIndexListUE();
-
-			 if (selected < 0) view.getUETab().writeErrorMessage("errorDeleteUE");
-			 else view.getUETab().deleteUE(selected);
+			 
+			 if (selected >= 0) {
+				 Ue ue = view.getUETab().getDataUEList().get(selected);
+				 parser.remove(ue.parse(), Ue.class);
+				 view.getUETab().deleteUE(selected);
+				 view.getUETab().displayUE();
+			 }
+			 else {
+				 view.getUETab().writeErrorMessage("errorDeleteUE");
+			 }
 		}
 	 }
 
@@ -93,7 +110,7 @@ public class Controlleur {
 	class deleteCreneauListener implements ActionListener {
 		 public void actionPerformed(ActionEvent e) {
 			 if (view.getCreneauTab().getCreneauLenght() == 0) {
-				 view.getCreneauTab().printError("List Vide");
+				 view.getCreneauTab().printError("Liste Vide");
 			 }
 			 else {
 				 String selected = view.getCreneauTab().getCreneau();

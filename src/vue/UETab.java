@@ -47,8 +47,8 @@ public class UETab {
 
 	private JScrollPane scrollListUE= new JScrollPane();
 
-	DefaultListModel listModel = new DefaultListModel();
-	JList listeUE = new JList(listModel);
+	DefaultListModel<Ue> listModel = new DefaultListModel<Ue>();
+	JList<Ue> listeUE = new JList<Ue>(listModel);
 
 	JButton createButton = new JButton("ajouter ue");
 	JButton deleteButton = new JButton("supprimer ue");
@@ -68,10 +68,10 @@ public class UETab {
 	}
 
 	private void initComponent() {
-		ue.add(new Ue("a","b"));
-		ue.add(new Ue("b","b"));
-		ue.add(new Ue("c","c"));
-		ue.add(new Ue("d","d"));
+//		ue.add(new Ue("a","b"));
+//		ue.add(new Ue("b","b"));
+//		ue.add(new Ue("c","c"));
+//		ue.add(new Ue("d","d"));
 
 		;
 		//GridBagConstraints c = new GridBagConstraints();
@@ -117,73 +117,7 @@ public class UETab {
 		displayUE();
 
 	}
-//	private void initComponent() {
-//
-//		ue.add(new UE("a","b"));
-//		ue.add(new UE("b","b"));
-//		ue.add(new UE("c","c"));
-//		ue.add(new UE("d","d"));
-//
-//		this.panel.setLayout(new GridLayout(1,1));
-//
-//		this.panel1.setLayout(new GridBagLayout());
-//		this.panel1.setBorder(new EmptyBorder(10, 10, 10, 10));
-//
-//
-//		this.panel2.setLayout(new BoxLayout(this.panel2, 1));
-//		//this.panel2.setLayout(new GridLayout(3, 1));
-//		/* le parametre fill sert � d�finir comment le composant sera rempli GridBagConstraints.BOTH permet d'occuper tout l'espace disponible
-//		 * horizontalement et verticalement GridBagConstraints.HORIZONTAL maximise horizontalement GridBagConstraints.VERTICAL maximise verticalement
-//		 */
-//		//gc.fill = GridBagConstraints.HORIZONTAL;
-//		/* insets d�finir la marge entre les composant new Insets(margeSup�rieure, margeGauche, margeInf�rieur, margeDroite) */
-//		gc.insets = new Insets(5, 5, 5, 5);
-//
-//		/* ipady permet de savoir o� on place le composant s'il n'occupe pas la totalit� de l'espace disponnible */
-//		//gc.ipady = gc.anchor = GridBagConstraints.CENTER;
-//
-//		/* weightx d�finit le nombre de cases en abscisse */
-//		gc.weightx = 2;
-//
-//		/* weightx d�finit le nombre de cases en ordonn�e */
-//		gc.weighty = 4;
-//
-//
-//		panel1.add(liste);
-//		displayUE();
-//		//displayUE();
-////		gc.gridx = 1;
-////		gc.gridy = 0;
-//		panel2.add(sigle);
-//
-////		gc.gridx = 1;
-////		gc.gridy = 1;
-//		panel2.add(sigleText);
-//
-////		gc.gridx = 1;
-////		gc.gridy = 2;
-//		panel2.add(nomination);
-//
-////		gc.gridx = 1;
-////		gc.gridy = 3;
-//		panel2.add(nominationText);
-//
-////		gc.gridx = 1;
-////		gc.gridy = 4;
-//		panel2.add(createButton);
-////		gc.gridx = 1;
-////		gc.gridy = 4;
-//		panel2.add(deleteButton);
-//
-//
-//		splitPane = new JSplitPane(SwingConstants.VERTICAL, panel1, panel2);
-//		splitPane.setDividerSize(0);
-//		splitPane.setResizeWeight(0.5);
-//
-//		panel.add(splitPane);
-//	}
-//
-//
+
 	public void displayUE() {
 		int a = 0;
 		c.gridx = 0;
@@ -213,7 +147,6 @@ public class UETab {
 
 	public void deleteUE(int index) {
 		ue.remove(index);
-		displayUE();
 	}
 
 	/**************/
@@ -238,6 +171,10 @@ public class UETab {
 
 	public int getIndexListUE() {
 		return listeUE.getSelectedIndex();
+	}
+	
+	public ArrayList<Ue> getDataUEList() {
+		return this.ue;
 	}
 
 }
