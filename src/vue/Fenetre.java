@@ -38,11 +38,11 @@ public class Fenetre extends JFrame{
 	private void initComponent() {
 
 		tab.add("UE", uePanel);
-	    tab.add("Crï¿½neaux", creneauPanel);
-	    tab.add("Classes", classePanel);
-	    tab.add("Session", sessionPanel);
-	    tab.setForeground(new Color(100,100,100));
-	    tab.setBackground(Color.white);
+		tab.add("Créneaux", creneauPanel);
+		tab.add("Classes", classePanel);
+		tab.add("Session", sessionPanel);
+		tab.setForeground(new Color(100,100,100));
+		tab.setBackground(Color.white);
 
 	    this.getContentPane().add(tab);
 	}

@@ -131,7 +131,7 @@ public class UETab {
 	/*** Getter ***/
 	/**************/
 
-	public JButton getCreateUE() {
+	public JButton getAddUE() {
 		return this.createButton;
 	}
 

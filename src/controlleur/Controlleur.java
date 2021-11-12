@@ -37,10 +37,13 @@ public class Controlleur {
 		//add Listener to Button
 		view.getCreneauTab().addCreneau().addActionListener(new addCreneauListener());
 		view.getCreneauTab().deleteCreneau().addActionListener(new deleteCreneauListener());
-		view.getUETab().getCreateUE().addActionListener(new createUEListener());
+		view.getUETab().getAddUE().addActionListener(new createUEListener());
 		view.getUETab().getDeleteUE().addActionListener(new deleteUEListener());
 		view.getClasseTab().getAddClasse().addActionListener(new createClasseListener());
 		view.getClasseTab().getDeleteClasse().addActionListener(new deleteClasseListener());
+		view.getSessionTab().getAddSession().addActionListener(new addSessionListener());
+		view.getSessionTab().getDeleteSession().addActionListener(new deleteSessionListener());
+		
 		
 		//Display existing data
 		view.getCreneauTab().displayCreneau();
@@ -50,6 +53,10 @@ public class Controlleur {
 		view.setVisible(true);
 	}	
 
+	/**********************/
+	/*** Listener UETab ***/
+	/**********************/
+	
 	class createUEListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 
@@ -84,6 +91,10 @@ public class Controlleur {
 		}
 	 }
 
+	/***************************/
+	/*** Listener CreneauTab ***/
+	/***************************/
+	
 	class addCreneauListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String day = view.getCreneauTab().getDayCreneau();
@@ -121,6 +132,9 @@ public class Controlleur {
 		}
 	 }
 	
+	/**************************/
+	/*** Listener ClasseTab ***/
+	/**************************/
 
 	class createClasseListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
@@ -155,4 +169,20 @@ public class Controlleur {
 			}
 		}
 	 }
+	
+	/***************************/
+	/*** Listener SessionTab ***/
+	/***************************/
+	
+	class addSessionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			
+		}
+	}
+	
+	class deleteSessionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			
+		}
+	}
 }
