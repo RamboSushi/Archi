@@ -49,6 +49,10 @@ public class Controlleur {
 		view.getCreneauTab().displayCreneau();
 		view.getUETab().displayUE();
 		view.getClasseTab().displayClasse();
+		view.getSessionTab().displayUe();
+		view.getSessionTab().displayClasse();
+		view.getSessionTab().displayCreneau();
+		view.getSessionTab().displaySession();
 		
 		view.setVisible(true);
 	}	
