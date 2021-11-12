@@ -1,5 +1,6 @@
 package vue;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -86,44 +87,48 @@ public class SessionTab {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		label = new JLabel("UE :");
 		c.gridx = 0;
-		c.gridy = 1;
+		c.gridy = 0;
 		sessionPanel.add(label, c);
 		scrollListSessionUe.setViewportView(listUe);
 		listUe.setLayoutOrientation(JList.VERTICAL);
 		listUe.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		c.gridy = 2;
+//		listUe.setPreferredSize(new Dimension(200, 200));
+		c.gridy = 1;
 		sessionPanel.add(scrollListSessionUe, c);
 		label = new JLabel("Nom de la Formation :");
 		c.gridx = 1;
-		c.gridy = 1;
+		c.gridy = 0;
 		sessionPanel.add(label, c);
 		scrollListSessionClasse.setViewportView(listClasse);
 		listClasse.setLayoutOrientation(JList.VERTICAL);
 		listClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		c.gridy = 2;
-		sessionPanel.add(scrollListSessionClasse, c);
-		label = new JLabel("Creneau :");
-		c.gridx = 2;
 		c.gridy = 1;
+		sessionPanel.add(scrollListSessionClasse, c);
+		label = new JLabel("Session :");
+		c.gridx = 1;
+		c.gridy = 5;
 		sessionPanel.add(label, c);
-		scrollListSessionCreneau.setViewportView(listCreneau);
-		listCreneau.setLayoutOrientation(JList.VERTICAL);
-		listCreneau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		c.gridy = 2;
-		sessionPanel.add(scrollListSessionCreneau, c);
-		c.weighty = 0.1;   //request any extra vertical space
-		c.gridx = 0;
-		c.gridy = 11;
-		sessionPanel.add(ajouter, c);
-		c.gridx = 2;
-		sessionPanel.add(supprimer, c);
-		
 		scrollListSession.setViewportView(listSession);
 		listSession.setLayoutOrientation(JList.VERTICAL);
 		listSession.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		c.gridx = 0;
-		c.gridy = 12;
+		c.gridx = 1;
+		c.gridy = 6;
 		sessionPanel.add(scrollListSession, c);
+		label = new JLabel("Creneau :");
+		c.gridx = 0;
+		c.gridy = 5;
+		sessionPanel.add(label, c);
+		scrollListSessionCreneau.setViewportView(listCreneau);
+		listCreneau.setLayoutOrientation(JList.VERTICAL);
+		c.gridy = 6;
+		sessionPanel.add(scrollListSessionCreneau, c);
+		c.weighty = 0.1;   //request any extra vertical space
+		c.gridx = 0;
+		c.gridy = 7;
+		sessionPanel.add(ajouter, c);
+		c.gridx = 1;
+		sessionPanel.add(supprimer, c);
+		
 		
 	}
 	
