@@ -111,7 +111,7 @@ public class SessionTab {
 		listCreneau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridy = 2;
 		sessionPanel.add(scrollListSessionCreneau, c);
-		c.weighty = 0.0;   //request any extra vertical space
+		c.weighty = 0.1;   //request any extra vertical space
 		c.gridx = 0;
 		c.gridy = 11;
 		sessionPanel.add(ajouter, c);
@@ -221,6 +221,16 @@ public class SessionTab {
 	/**************/
 	/*** Getter ***/
 	/**************/
+	
+	public ArrayList<Ue> getDataUeList() {
+		return this.ue;
+	}
+	public ArrayList<Classe> getDataClasseList() {
+		return this.classe;
+	}
+	public ArrayList<Creneau> getDataCreneauList() {
+		return this.creneau;
+	}
 	
 	public ArrayList<Session> getDataSessionList() {
 		return this.session;

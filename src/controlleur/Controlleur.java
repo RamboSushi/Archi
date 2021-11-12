@@ -26,12 +26,15 @@ public class Controlleur {
 		//Load data from files
 		for(int i=0;i<creneau_read_parser.size();i++) {
 			view.getCreneauTab().getDataCreneauList().add(((Creneau) creneau_read_parser.get(i)));
+			view.getSessionTab().getDataCreneauList().add(((Creneau) creneau_read_parser.get(i)));
 			}
 		for(int i=0;i<ue_read_parser.size();i++) {
 			view.getUETab().getDataUEList().add(((Ue) ue_read_parser.get(i)));
+			view.getSessionTab().getDataUeList().add(((Ue) ue_read_parser.get(i)));
 		}
 		for(int i=0;i<classe_read_parser.size();i++) {
 			view.getClasseTab().getDataClasseList().add(((Classe) classe_read_parser.get(i)));
+			view.getSessionTab().getDataClasseList().add(((Classe) classe_read_parser.get(i)));
 		}
 		
 		//add Listener to Button
