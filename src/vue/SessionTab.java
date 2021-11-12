@@ -39,15 +39,26 @@ public class SessionTab {
 	
 	private JTextField name_session = new JTextField();
 	
-	private int current_year = ZonedDateTime.now(ZoneId.of("CET")).getYear();
-	private SpinnerModel value_year =  new SpinnerNumberModel(current_year,current_year-10,current_year+10,1);  
-	private JSpinner spinner_years = new JSpinner(value_year);
-	
+	private JScrollPane scrollListSessionUe = new JScrollPane();
+	private JScrollPane scrollListSessionClasse = new JScrollPane();
+	private JScrollPane scrollListSessionCreneau = new JScrollPane();
 	private JScrollPane scrollListSession = new JScrollPane();
 	
+	private ArrayList<Ue> ue = new ArrayList<Ue>();
+	private DefaultListModel<Ue> listModelUe = new DefaultListModel<Ue>();
+	private JList<Ue> listUe = new JList<Ue>(listModelUe);
+	
+	private ArrayList<Classe> classe = new ArrayList<Classe>();
+	private DefaultListModel<Classe> listModelClasse = new DefaultListModel<Classe>();
+	private JList<Classe> listClasse = new JList<Classe>(listModelClasse);
+	
+	private ArrayList<Creneau> creneau = new ArrayList<Creneau>();
+	private DefaultListModel<Creneau> listModelCreneau = new DefaultListModel<Creneau>();
+	private JList<Creneau> listCreneau = new JList<Creneau>(listModelCreneau);
+	
 	private ArrayList<Session> session = new ArrayList<Session>();
-	private DefaultListModel<Session> listModel = new DefaultListModel<Session>();
-	private JList<Session> listSession = new JList<Session>(listModel);
+	private DefaultListModel<Session> listModelSession = new DefaultListModel<Session>();
+	private JList<Session> listSession = new JList<Session>(listModelSession);
 	
 	
 	private GridBagConstraints c = new GridBagConstraints();
@@ -64,26 +75,43 @@ public class SessionTab {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		initComponentJButton();
+		displayUe();
+		displayClasse();
+		displayCreneau();
 		displaySession();
 		
 	}
 	
 	private void initComponentJButton() {
 		c.fill = GridBagConstraints.HORIZONTAL;
-		label = new JLabel("Année scolaire (Début) :");
+		label = new JLabel("UE :");
 		c.gridx = 0;
 		c.gridy = 1;
 		sessionPanel.add(label, c);
+		scrollListSessionUe.setViewportView(listUe);
+		listUe.setLayoutOrientation(JList.VERTICAL);
+		listUe.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridy = 2;
-		JFormattedTextField spin_years =((JSpinner.DefaultEditor)spinner_years.getEditor()).getTextField();
-		spin_years.setEditable(false);
-		sessionPanel.add(spinner_years, c);
+		sessionPanel.add(scrollListSessionUe, c);
 		label = new JLabel("Nom de la Formation :");
-		c.gridy = 3;
+		c.gridx = 1;
+		c.gridy = 1;
 		sessionPanel.add(label, c);
-		c.gridy = 4;
-		sessionPanel.add(name_session, c);
-		c.weighty = 0.1;   //request any extra vertical space
+		scrollListSessionClasse.setViewportView(listClasse);
+		listClasse.setLayoutOrientation(JList.VERTICAL);
+		listClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		c.gridy = 2;
+		sessionPanel.add(scrollListSessionClasse, c);
+		label = new JLabel("Creneau :");
+		c.gridx = 2;
+		c.gridy = 1;
+		sessionPanel.add(label, c);
+		scrollListSessionCreneau.setViewportView(listCreneau);
+		listCreneau.setLayoutOrientation(JList.VERTICAL);
+		listCreneau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		c.gridy = 2;
+		sessionPanel.add(scrollListSessionCreneau, c);
+		c.weighty = 0.0;   //request any extra vertical space
 		c.gridx = 0;
 		c.gridy = 11;
 		sessionPanel.add(ajouter, c);
@@ -99,12 +127,45 @@ public class SessionTab {
 		
 	}
 	
+	public void displayUe() {
+		listModelUe.clear();
+		
+		//System.out.println(ue.size());
+		for(int i = 0; i<ue.size();i++) {
+			listModelUe.addElement(ue.get(i));
+		}
+		sessionPanel.repaint();
+		//panel1.updateUI();
+	}
+	
+	public void displayClasse() {
+		listModelClasse.clear();
+		
+		//System.out.println(ue.size());
+		for(int i = 0; i<classe.size();i++) {
+			listModelClasse.addElement(classe.get(i));
+		}
+		sessionPanel.repaint();
+		//panel1.updateUI();
+	}
+	
+	public void displayCreneau() {
+		listModelCreneau.clear();
+		
+		//System.out.println(ue.size());
+		for(int i = 0; i<creneau.size();i++) {
+			listModelCreneau.addElement(creneau.get(i));
+		}
+		sessionPanel.repaint();
+		//panel1.updateUI();
+	}
+	
 	public void displaySession() {
-		listModel.clear();
+		listModelSession.clear();
 		
 		//System.out.println(ue.size());
 		for(int i = 0; i<session.size();i++) {
-			listModel.addElement(session.get(i));
+			listModelSession.addElement(session.get(i));
 		}
 		sessionPanel.repaint();
 		//panel1.updateUI();
@@ -112,19 +173,23 @@ public class SessionTab {
 	
 	
 	public void printSession(Classe classe) {
-        JOptionPane.showMessageDialog(sessionPanel, classe.toString(), "Classe Ajoutée", 0);
+        JOptionPane.showMessageDialog(sessionPanel, classe.toString(), "Classe Ajoutï¿½e", 0);
     }
 	public void printError(String msg) {
         JOptionPane.showMessageDialog(sessionPanel, msg, "Error", 0);
     }
 
-	public String getYearSession() {
-		return this.spinner_years.getValue().toString();
+
+	public String getUe() {
+		return this.listUe.getSelectedValue().toString();
 	}
 	
-
-	public String getNameSession() {
-		return this.name_session.getText();
+	public String getClasse() {
+		return this.listClasse.getSelectedValue().toString();
+	}
+	
+	public String getCreneau() {
+		return this.listCreneau.getSelectedValue().toString();
 	}
 
 	public String getSession() {
@@ -168,13 +233,6 @@ public class SessionTab {
 		return this.supprimer;
 	}
 	
-	public String getSessionFormation() {
-		return name_session.getText();
-	}
-	
-	public String getSessionYear() {
-		return spinner_years.getValue().toString();
-	}
 
 	public int getIndexListSession() {
 		return listSession.getSelectedIndex();
