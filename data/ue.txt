@@ -1,11 +1,5 @@
-az;dze
 da;daz
-z;z
-z;z
-z;z
-z;z
-z;z
-z;z
-z;z
-z;z
-z;z
+d;d
+a;a
+a;d
+sz;sza

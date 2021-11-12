@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.MenuKeyListener;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
 
@@ -25,6 +26,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -50,16 +53,17 @@ public class UETab {
 	private JList<Ue> listeUE = new JList<Ue>(listModel);
 
 	private GridBagConstraints c = new GridBagConstraints();
+	
 
 	public UETab(JPanel panel) {
 		this.uePanel=panel;
 		this.uePanel.setLayout(new GridBagLayout());
-
+		
 		initComponent();
 	}
 
 	private void initComponent() {
-
+	
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 		c.gridx = 0;
@@ -99,19 +103,19 @@ public class UETab {
 	public void displayUE() {
 		listModel.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<ue.size();i++) {
 			listModel.addElement(ue.get(i));
 		}
 		uePanel.repaint();
-		//panel1.updateUI();
 	}
 
-	public void writeErrorMessage(String str) {
+	public void writeMessage(String str) {
 		if( str.equals("errorCreateUE") )
-			JOptionPane.showMessageDialog(uePanel, "Impossible de creer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(uePanel, "Impossible de creer une ue", "erreur", JOptionPane.ERROR_MESSAGE);
 		else if( str.equals("errorDeleteUE") )
-			JOptionPane.showMessageDialog(uePanel, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(uePanel, "Impossible de supprimer une ue", "erreur", JOptionPane.ERROR_MESSAGE);
+		else if( str.equals("successfullycreateUE") ) 
+			JOptionPane.showMessageDialog(uePanel, "ue ajoutee", "succes", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 
@@ -154,5 +158,5 @@ public class UETab {
 	public ArrayList<Ue> getDataUEList() {
 		return this.ue;
 	}
-
+	
 }

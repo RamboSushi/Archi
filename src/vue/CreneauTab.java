@@ -78,14 +78,14 @@ public class CreneauTab {
 		creneauPanel.add(label, c);
 		c.gridy = 4;
 		creneauPanel.add(box_months, c);
-		label = new JLabel("Ann�e :");
+		label = new JLabel("Annee :");
 		c.gridy = 5;
 		creneauPanel.add(label, c);
 		c.gridy = 6;
 		JFormattedTextField spin=((JSpinner.DefaultEditor)spinner_years.getEditor()).getTextField();
 		spin.setEditable(false);
 		creneauPanel.add(spinner_years, c);
-		label = new JLabel("Heure d�but :");
+		label = new JLabel("Heure debut :");
 		c.gridy = 7;
 		creneauPanel.add(label, c);
 		c.gridy = 8;
@@ -95,7 +95,7 @@ public class CreneauTab {
 		creneauPanel.add(label, c);
 		c.gridy = 10;
 		creneauPanel.add(box_hour_end, c);
-		label = new JLabel("Minute d�but :");
+		label = new JLabel("Minute debut :");
 		c.fill = GridBagConstraints.HORIZONTAL; 
 		c.gridx = 2;
 		c.gridy = 7;
@@ -128,20 +128,20 @@ public class CreneauTab {
 	public void displayCreneau() {
 		listModel.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<creneau.size();i++) {
 			listModel.addElement(creneau.get(i));
 		}
 		creneauPanel.repaint();
-		//panel1.updateUI();
 	}
 	
-	public void printCreneau(Creneau creneau) {
-        JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajout�", JOptionPane.INFORMATION_MESSAGE);
-    }
-	public void printError(String msg) {
-        JOptionPane.showMessageDialog(creneauPanel, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
-    }
+	public void writeMessage(String str) {
+		if( str.equals("errorCreateCreneau") )
+			JOptionPane.showMessageDialog(creneauPanel, "Impossible de creer un creneau", "erreur", JOptionPane.ERROR_MESSAGE);
+		else if( str.equals("errorDeleteCreneau") )
+			JOptionPane.showMessageDialog(creneauPanel, "Impossible de supprimer un creneau", "erreur", JOptionPane.ERROR_MESSAGE);
+		else if( str.equals("successfullycreateCreneau") ) 
+			JOptionPane.showMessageDialog(creneauPanel, "creneau ajoute", "succes", JOptionPane.INFORMATION_MESSAGE);
+	}
 	
 	/**************/
 	/*** Setter ***/

@@ -62,7 +62,7 @@ public class ClasseTab {
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		label = new JLabel("Année scolaire (Début) :");
+		label = new JLabel("Année scolaire (Debut) :");
 		c.gridx = 0;
 		c.gridy = 1;
 		classePanel.add(label, c);
@@ -95,20 +95,20 @@ public class ClasseTab {
 	public void displayClasse() {
 		listModel.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<classe.size();i++) {
 			listModel.addElement(classe.get(i));
 		}
 		classePanel.repaint();
-		//panel1.updateUI();
 	}
 	
-
-	public void writeErrorMessage(String str) {
+	public void writeMessage(String str) {
 		if( str.equals("errorCreateClasse") )
 			JOptionPane.showMessageDialog(classePanel, "Impossible de creer une classe", "Erreur", JOptionPane.ERROR_MESSAGE);
 		else if( str.equals("errorDeleteClasse") )
 			JOptionPane.showMessageDialog(classePanel, "Impossible de supprimer une classe", "Erreur", JOptionPane.ERROR_MESSAGE);
+		else if( str.equals("successfullycreateClasse") )
+			JOptionPane.showMessageDialog(classePanel, "Classe ajoutee", "succes", JOptionPane.INFORMATION_MESSAGE);
+	
 	}
 	
 	/**************/

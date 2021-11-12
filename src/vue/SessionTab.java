@@ -61,7 +61,6 @@ public class SessionTab {
 	private DefaultListModel<Session> listModelSession = new DefaultListModel<Session>();
 	private JList<Session> listSession = new JList<Session>(listModelSession);
 	
-	
 	private GridBagConstraints c = new GridBagConstraints();
 	
 	public SessionTab(JPanel panel) {
@@ -108,24 +107,27 @@ public class SessionTab {
 		listSession.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridx = 1;
 		c.gridy = 6;
-		
 		sessionPanel.add(scrollListSession, c);
+		
 		label = new JLabel("Creneau :");
 		c.gridx = 0;
 		c.gridy = 5;
 		sessionPanel.add(label, c);
+		
 		scrollListSessionCreneau.setViewportView(listCreneau);
 		listCreneau.setLayoutOrientation(JList.VERTICAL);
+		listSession.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		c.gridy = 6;
 		sessionPanel.add(scrollListSessionCreneau, c);
+		
 		c.weighty = 0.1;   //request any extra vertical space
 		c.gridx = 0;
 		c.gridy = 7;
 		sessionPanel.add(ajouter, c);
+		
 		c.gridx = 1;
 		sessionPanel.add(supprimer, c);
 		
-		//initComponentJButton();
 		displayUe();
 		displayClasse();
 		displayCreneau();
@@ -136,70 +138,46 @@ public class SessionTab {
 	public void displayUe() {
 		listModelUe.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<ue.size();i++) {
 			listModelUe.addElement(ue.get(i));
 		}
 		sessionPanel.repaint();
-		//panel1.updateUI();
 	}
 	
 	public void displayClasse() {
 		listModelClasse.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<classe.size();i++) {
 			listModelClasse.addElement(classe.get(i));
 		}
 		sessionPanel.repaint();
-		//panel1.updateUI();
 	}
 	
 	public void displayCreneau() {
 		listModelCreneau.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<creneau.size();i++) {
 			listModelCreneau.addElement(creneau.get(i));
 		}
 		sessionPanel.repaint();
-		//panel1.updateUI();
 	}
 	
 	public void displaySession() {
 		listModelSession.clear();
 		
-		//System.out.println(ue.size());
 		for(int i = 0; i<session.size();i++) {
 			listModelSession.addElement(session.get(i));
 		}
 		sessionPanel.repaint();
-		//panel1.updateUI();
 	}
 	
 	
-	public void printSession(Classe classe) {
-        JOptionPane.showMessageDialog(sessionPanel, classe.toString(), "Classe Ajout�e", 0);
-    }
-	public void printError(String msg) {
-        JOptionPane.showMessageDialog(sessionPanel, msg, "Error", 0);
-    }
-
-
-	public String getUe() {
-		return this.listUe.getSelectedValue().toString();
-	}
-	
-	public String getClasse() {
-		return this.listClasse.getSelectedValue().toString();
-	}
-	
-	public String getCreneau() {
-		return this.listCreneau.getSelectedValue().toString();
-	}
-
-	public String getSession() {
-		return this.listSession.getSelectedValue().toString();
+	public void writeErrorMessage(String str) {
+		if( str.equals("errorCreateSession") )
+			str = "impossible de creer une session";
+		else if( str.equals("errorDeleteSession") )
+			str = "impossible de supprimer une session";	
+		JOptionPane.showMessageDialog(sessionPanel, str, "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	/**************/
@@ -247,5 +225,13 @@ public class SessionTab {
 	}
 	public int getIndexListClasse() {
 		return listClasse.getSelectedIndex();
+	}
+	
+	public int[] getIndexListCreneau() {
+		return listCreneau.getSelectedIndices();
+	}
+	
+	public int getIndexListSession() {
+		return listSession.getSelectedIndex();
 	}
 }

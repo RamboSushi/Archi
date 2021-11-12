@@ -7,10 +7,10 @@ import javax.swing.JTabbedPane;
 
 import java.awt.Color;
 
-public class Fenetre extends JFrame{
+public class Fenetre extends JFrame {
 
-	private static final int WIDTH = 500;
-	private static final int HEIGHT =500;
+	private static final int WIDTH = 550;
+	private static final int HEIGHT =550;
 
 
 	private JTabbedPane tab = new JTabbedPane();
@@ -29,7 +29,7 @@ public class Fenetre extends JFrame{
 	    this.setTitle("Archi");
 	    this.setSize(WIDTH, HEIGHT);
 	    this.setLocationRelativeTo(null);
-	    this.setResizable(true);
+	    this.setResizable(false);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.getContentPane().setBackground(Color.white);
 	    initComponent();
