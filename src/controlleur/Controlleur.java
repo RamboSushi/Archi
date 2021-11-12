@@ -48,19 +48,7 @@ public class Controlleur {
 		view.getClasseTab().displayClasse();
 		
 		view.setVisible(true);
-	}
-
-	/**
-	 * 
-	 * @param sigle
-	 * @param nomination
-	 * @return true if params are not empty
-	 */
-	public boolean checkNewUE(String sigle, String nomination) {
-		if (sigle.isEmpty() || nomination.isEmpty()) return false;
-		return true;
-	}
-	
+	}	
 
 	class createUEListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
@@ -68,7 +56,7 @@ public class Controlleur {
 			String sigle = view.getUETab().getUEsigle();
 			String nomination = view.getUETab().getUEnomination();
 
-			if(checkNewUE(sigle, nomination)) {
+			if(sigle.isEmpty() || nomination.isEmpty()) {
 				Ue ue = new Ue(sigle, nomination);
 				view.getUETab().setNewUE(ue);
 				view.getUETab().displayUE();
@@ -138,7 +126,7 @@ public class Controlleur {
 		public void actionPerformed(ActionEvent e){
 
 			String formation = view.getClasseTab().getClasseFormation();
-			String year = view.getClasseTab().getYearClasse();
+			String year = view.getClasseTab().getClasseYear();
 			
 			if(!formation.isEmpty()) {
 				Classe classe = new Classe(formation, year);
@@ -147,15 +135,11 @@ public class Controlleur {
 				parser.write(classe.parse(), Classe.class);
 			}
 			else {
-				view.getUETab().writeErrorMessage("errorCreateUE");  
+				view.getClasseTab().writeErrorMessage("errorCreateClasse");  
 			}
 		}
 	 }
 
-	/*
-	 * to do
-	 */
-	
 	class deleteClasseListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 			int selected = view.getClasseTab().getIndexListClasse();
@@ -163,11 +147,11 @@ public class Controlleur {
 			if (selected >= 0) {
 				Classe classe = view.getClasseTab().getDataClasseList().get(selected);
 				parser.remove(classe.parse(), Classe.class);
-				view.getClasseTab().setDeleteUE(selected);
+				view.getClasseTab().setDeleteClasse(selected);
 				view.getClasseTab().displayClasse();
 			}
 			else {
-				view.getUETab().writeErrorMessage("errorDeleteUE");
+				view.getClasseTab().writeErrorMessage("errorDeleteClasse");
 			}
 		}
 	 }

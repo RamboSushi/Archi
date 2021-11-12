@@ -111,35 +111,13 @@ public class ClasseTab {
 		//panel1.updateUI();
 	}
 	
-	
-	public void printClasse(Classe classe) {
-        JOptionPane.showMessageDialog(classePanel, classe.toString(), "Classe Ajoutée", 0);
-    }
-	public void printError(String msg) {
-        JOptionPane.showMessageDialog(classePanel, msg, "Error", 0);
-    }
 
-	public String getYearClasse() {
-		return this.spinner_years.getValue().toString();
+	public void writeErrorMessage(String str) {
+		if( str.equals("errorCreateClasse") )
+			JOptionPane.showMessageDialog(classePanel, "Impossible de creer une classe", "Erreur", JOptionPane.ERROR_MESSAGE);
+		else if( str.equals("errorDeleteClasse") )
+			JOptionPane.showMessageDialog(classePanel, "Impossible de supprimer une classe", "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
-	
-
-	public String getNameClasse() {
-		return this.name_classe.getText();
-	}
-
-	public String getClasse() {
-		return this.listClasse.getSelectedValue().toString();
-	}
-//	public int getClasseLenght() {
-//		return this.dataClasseList.size();
-//	}
-//	public ArrayList<String> getDataClasseList() {
-//		return this.dataClasseList;
-//	}
-//	public ArrayList<Classe> getDBClasseList() {
-//		return this.dbClasse;
-//	}
 	
 	/**************/
 	/*** Setter ***/
@@ -149,7 +127,7 @@ public class ClasseTab {
 		this.classe.add(classe);
 	}
 
-	public void setDeleteUE(int index) {
+	public void setDeleteClasse(int index) {
 		this.classe.remove(index);
 	}
 	

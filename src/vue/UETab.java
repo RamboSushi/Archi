@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -33,14 +34,14 @@ public class UETab {
 
 	private JPanel uePanel;
 
-	private JLabel sigle = new JLabel("Sigle");
-	private JLabel nomination = new JLabel("Nomination");
+	private JLabel sigle = new JLabel("Sigle : ");
+	private JLabel nomination = new JLabel("Nomination : ");
+	
+	private JTextField sigleText = new JTextField();
+	private JTextField nominationText = new JTextField();
 
-	private JTextArea sigleText = new JTextArea();
-	private JTextArea nominationText = new JTextArea();
-
-	private JButton createButton = new JButton("ajouter ue");
-	private JButton deleteButton = new JButton("supprimer ue");
+	private JButton createButton = new JButton("ajouter une ue");
+	private JButton deleteButton = new JButton("supprimer une ue");
 	
 	private JScrollPane scrollListUE= new JScrollPane();
 
@@ -61,7 +62,7 @@ public class UETab {
 
 		c.fill = GridBagConstraints.HORIZONTAL;
 
-		c.gridx = 1;
+		c.gridx = 0;
 		c.gridy = 1;
 		uePanel.add(sigle, c);
 
@@ -75,19 +76,18 @@ public class UETab {
 		uePanel.add(nominationText, c);
 
 		c.weighty = 1;
-		c.gridx = 1;
+		c.gridx = 0;
 		c.gridy = 5;
 		uePanel.add(createButton, c);
 
-		c.weighty = 1;
 		c.gridx = 1;
-		c.gridy = 6;
+		c.gridy = 5;
 		uePanel.add(deleteButton, c);
 
 		scrollListUE.setViewportView(listeUE);
 		listeUE.setLayoutOrientation(JList.VERTICAL);
 		listeUE.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		c.gridx = 1;
+		c.gridx = 0;
 		c.gridy = 8;
 		uePanel.add(scrollListUE, c);
 
