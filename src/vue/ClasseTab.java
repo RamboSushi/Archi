@@ -9,6 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -42,10 +43,12 @@ public class ClasseTab {
 	private SpinnerModel value_year =  new SpinnerNumberModel(current_year,current_year-10,current_year+10,1);  
 	private JSpinner spinner_years = new JSpinner(value_year);
 	
-	private ArrayList<String> dataClasseList = new ArrayList<String>();
-	private ArrayList<Classe> dbClasse = new ArrayList<Classe>();
 	private JScrollPane scrollListClasse = new JScrollPane();
-	private JList listClasse = new JList(dataClasseList.toArray(new String[dataClasseList.size()]));
+	
+	//private ArrayList<String> dataClasseList = new ArrayList<String>();
+	private ArrayList<Classe> classe = new ArrayList<Classe>();
+	private DefaultListModel<Classe> listModel = new DefaultListModel<Classe>();
+	private JList<Classe> listClasse = new JList<Classe>(listModel);
 	
 	
 	private GridBagConstraints c = new GridBagConstraints();
@@ -53,6 +56,7 @@ public class ClasseTab {
 	public ClasseTab(JPanel panel) {
 		this.classePanel=panel;
 		this.classePanel.setLayout(new GridBagLayout());
+		
 		initComponent();
 	}
 	
@@ -61,7 +65,7 @@ public class ClasseTab {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		initComponentJButton();
-		initComponentJList();
+		displayClasse();
 		
 	}
 	
@@ -86,20 +90,25 @@ public class ClasseTab {
 		classePanel.add(ajouter, c);
 		c.gridx = 2;
 		classePanel.add(supprimer, c);
-	}
-	
-	public void initComponentJList() {
-		c.fill = GridBagConstraints.HORIZONTAL;
-		listClasse = new JList(dataClasseList.toArray(new String[dataClasseList.size()]));
+		
 		scrollListClasse.setViewportView(listClasse);
 		listClasse.setLayoutOrientation(JList.VERTICAL);
 		listClasse.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		if (dataClasseList.size() != 0) {
-			listClasse.setSelectedIndex(0);
-		}
 		c.gridx = 0;
 		c.gridy = 12;
 		classePanel.add(scrollListClasse, c);
+		
+	}
+	
+	public void displayClasse() {
+		listModel.clear();
+		
+		//System.out.println(ue.size());
+		for(int i = 0; i<classe.size();i++) {
+			listModel.addElement(classe.get(i));
+		}
+		classePanel.repaint();
+		//panel1.updateUI();
 	}
 	
 	
@@ -122,22 +131,54 @@ public class ClasseTab {
 	public String getClasse() {
 		return this.listClasse.getSelectedValue().toString();
 	}
-	public int getClasseLenght() {
-		return this.dataClasseList.size();
-	}
-	public ArrayList<String> getDataClasseList() {
-		return this.dataClasseList;
-	}
-	public ArrayList<Classe> getDBClasseList() {
-		return this.dbClasse;
-	}
+//	public int getClasseLenght() {
+//		return this.dataClasseList.size();
+//	}
+//	public ArrayList<String> getDataClasseList() {
+//		return this.dataClasseList;
+//	}
+//	public ArrayList<Classe> getDBClasseList() {
+//		return this.dbClasse;
+//	}
 	
-	public JButton addClasse() {
-		return this.ajouter;
-	}
-	public JButton deleteClasse() {
-		return this.supprimer;
+	/**************/
+	/*** Setter ***/
+	/**************/
+	
+	public void setNewClasse(Classe classe) {
+		this.classe.add(classe);
 	}
 
+	public void setDeleteUE(int index) {
+		this.classe.remove(index);
+	}
+	
+	
+	/**************/
+	/*** Getter ***/
+	/**************/
+	
+	public ArrayList<Classe> getDataClasseList() {
+		return this.classe;
+	}
+	
+	public JButton getAddClasse() {
+		return this.ajouter;
+	}
+	public JButton getDeleteClasse() {
+		return this.supprimer;
+	}
+	
+	public String getClasseFormation() {
+		return name_classe.getText();
+	}
+	
+	public String getClasseYear() {
+		return spinner_years.getValue().toString();
+	}
+
+	public int getIndexListClasse() {
+		return listClasse.getSelectedIndex();
+	}
 	
 }

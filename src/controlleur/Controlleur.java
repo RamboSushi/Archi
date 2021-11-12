@@ -13,6 +13,7 @@ public class Controlleur {
 	
 	private ArrayList<Object> creneau_read_parser;
 	private ArrayList<Object> ue_read_parser;
+	private ArrayList<Object> classe_read_parser;
 	
 	public Controlleur(Fenetre fenetre, Parser parser) {
 		this.parser = parser;
@@ -20,6 +21,7 @@ public class Controlleur {
 		
 		creneau_read_parser = parser.read(Creneau.class);
 		ue_read_parser = parser.read(Ue.class);
+		classe_read_parser = parser.read(Classe.class);
 		
 		//Load data from files
 		for(int i=0;i<creneau_read_parser.size();i++) {
@@ -28,16 +30,22 @@ public class Controlleur {
 		for(int i=0;i<ue_read_parser.size();i++) {
 			view.getUETab().getDataUEList().add(((Ue) ue_read_parser.get(i)));
 		}
+		for(int i=0;i<classe_read_parser.size();i++) {
+			view.getClasseTab().getDataClasseList().add(((Classe) classe_read_parser.get(i)));
+		}
 		
 		//add Listener to Button
 		view.getCreneauTab().addCreneau().addActionListener(new addCreneauListener());
 		view.getCreneauTab().deleteCreneau().addActionListener(new deleteCreneauListener());
 		view.getUETab().getCreateUE().addActionListener(new createUEListener());
 		view.getUETab().getDeleteUE().addActionListener(new deleteUEListener());
+		view.getClasseTab().getAddClasse().addActionListener(new createClasseListener());
+		view.getClasseTab().getDeleteClasse().addActionListener(new deleteClasseListener());
 		
 		//Display existing data
 		view.getCreneauTab().displayCreneau();
 		view.getUETab().displayUE();
+		view.getClasseTab().displayClasse();
 		
 		view.setVisible(true);
 	}
@@ -121,6 +129,45 @@ public class Controlleur {
 			}
 			else {
 				view.getCreneauTab().printError("Impossible de supprimer un creneau");
+			}
+		}
+	 }
+	
+
+	class createClasseListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+
+			String formation = view.getClasseTab().getClasseFormation();
+			String year = view.getClasseTab().getYearClasse();
+			
+			if(!formation.isEmpty()) {
+				Classe classe = new Classe(formation, year);
+				view.getClasseTab().setNewClasse(classe);
+				view.getClasseTab().displayClasse();
+				parser.write(classe.parse(), Classe.class);
+			}
+			else {
+				view.getUETab().writeErrorMessage("errorCreateUE");  
+			}
+		}
+	 }
+
+	/*
+	 * to do
+	 */
+	
+	class deleteClasseListener implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			int selected = view.getClasseTab().getIndexListClasse();
+			
+			if (selected >= 0) {
+				Classe classe = view.getClasseTab().getDataClasseList().get(selected);
+				parser.remove(classe.parse(), Classe.class);
+				view.getClasseTab().setDeleteUE(selected);
+				view.getClasseTab().displayClasse();
+			}
+			else {
+				view.getUETab().writeErrorMessage("errorDeleteUE");
 			}
 		}
 	 }

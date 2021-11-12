@@ -31,7 +31,7 @@ import modele.*;
 
 public class UETab {
 
-	private JPanel panel;
+	private JPanel uePanel;
 
 	private JLabel sigle = new JLabel("Sigle");
 	private JLabel nomination = new JLabel("Nomination");
@@ -51,8 +51,8 @@ public class UETab {
 	private GridBagConstraints c = new GridBagConstraints();
 
 	public UETab(JPanel panel) {
-		this.panel=panel;		
-		this.panel.setLayout(new GridBagLayout());
+		this.uePanel=panel;		
+		this.uePanel.setLayout(new GridBagLayout());
 
 		initComponent();
 	}
@@ -63,38 +63,39 @@ public class UETab {
 
 		c.gridx = 1;
 		c.gridy = 1;
-		panel.add(sigle, c);
+		uePanel.add(sigle, c);
 
 		c.gridy = 2;
-		panel.add(sigleText, c);
+		uePanel.add(sigleText, c);
 
 		c.gridy = 3;
-		panel.add(nomination, c);
+		uePanel.add(nomination, c);
 
 		c.gridy = 4;
-		panel.add(nominationText, c);
+		uePanel.add(nominationText, c);
 
 		c.weighty = 1;
 		c.gridx = 1;
 		c.gridy = 5;
-		panel.add(createButton, c);
+		uePanel.add(createButton, c);
 
 		c.weighty = 1;
 		c.gridx = 1;
 		c.gridy = 6;
-		panel.add(deleteButton, c);
+		uePanel.add(deleteButton, c);
 
 		scrollListUE.setViewportView(listeUE);
 		listeUE.setLayoutOrientation(JList.VERTICAL);
 		listeUE.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridx = 1;
 		c.gridy = 8;
-		panel.add(scrollListUE, c);
+		uePanel.add(scrollListUE, c);
 
 		displayUE();
 
 	}
-
+	
+	/*** Display list of Ue ***/
 	public void displayUE() {
 		listModel.clear();
 		
@@ -102,15 +103,15 @@ public class UETab {
 		for(int i = 0; i<ue.size();i++) {
 			listModel.addElement(ue.get(i));
 		}
-		panel.repaint();
+		uePanel.repaint();
 		//panel1.updateUI();
 	}
 
 	public void writeErrorMessage(String str) {
 		if( str.equals("errorCreateUE") )
-			JOptionPane.showMessageDialog(panel, "Impossible de creer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(uePanel, "Impossible de creer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 		else if( str.equals("errorDeleteUE") )
-			JOptionPane.showMessageDialog(panel, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(uePanel, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
 	
 
