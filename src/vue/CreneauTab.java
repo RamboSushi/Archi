@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -42,10 +43,12 @@ public class CreneauTab {
 	private int year = ZonedDateTime.now(ZoneId.of("CET")).getYear();
 	private SpinnerModel value =  new SpinnerNumberModel(year,year-10,year+10,1);  
 	private JSpinner spinner_years = new JSpinner(value);
-	private ArrayList<String> dataCreneauList = new ArrayList<String>();
-	private ArrayList<Creneau> dbCreneau = new ArrayList<Creneau>();
+	
 	private JScrollPane scrollListCreneau = new JScrollPane();
-	private JList listCreneau = new JList(dataCreneauList.toArray(new String[dataCreneauList.size()]));
+	
+	private ArrayList<Creneau> creneau = new ArrayList<Creneau>();
+	DefaultListModel<Creneau> listModel = new DefaultListModel<Creneau>();
+	private JList<Creneau> listCreneau = new JList<Creneau>(listModel);
 	
 	private GridBagConstraints c = new GridBagConstraints();
 	
@@ -60,7 +63,7 @@ public class CreneauTab {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		initComponentJButton();
-		initComponentJList();
+		displayCreneau();
 		
 	}
 	
@@ -112,20 +115,24 @@ public class CreneauTab {
 		creneauPanel.add(ajouter, c);
 		c.gridx = 2;
 		creneauPanel.add(supprimer, c);
-	}
-	
-	public void initComponentJList() {
-		c.fill = GridBagConstraints.HORIZONTAL;
-		listCreneau = new JList(dataCreneauList.toArray(new String[dataCreneauList.size()]));
+		
 		scrollListCreneau.setViewportView(listCreneau);
 		listCreneau.setLayoutOrientation(JList.VERTICAL);
 		listCreneau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		if (dataCreneauList.size() != 0) {
-			listCreneau.setSelectedIndex(0);
-		}
 		c.gridx = 0;
 		c.gridy = 12;
 		creneauPanel.add(scrollListCreneau, c);
+	}
+	
+	public void displayCreneau() {
+		listModel.clear();
+		
+		//System.out.println(ue.size());
+		for(int i = 0; i<creneau.size();i++) {
+			listModel.addElement(creneau.get(i));
+		}
+		creneauPanel.repaint();
+		//panel1.updateUI();
 	}
 	
 	public JButton loadCreneau() {
@@ -133,10 +140,10 @@ public class CreneauTab {
 	}
 	
 	public void printCreneau(Creneau creneau) {
-        JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajout�", 0);
+        JOptionPane.showMessageDialog(creneauPanel, creneau.toString(), "Creneau Ajout�", JOptionPane.INFORMATION_MESSAGE);
     }
 	public void printError(String msg) {
-        JOptionPane.showMessageDialog(creneauPanel, msg, "Error", 0);
+        JOptionPane.showMessageDialog(creneauPanel, msg, "Erreur", JOptionPane.ERROR_MESSAGE);
     }
 	
 	public String getDayCreneau() {
@@ -160,23 +167,28 @@ public class CreneauTab {
 	public String getMinuteEndCreneau() {
 		return this.box_minute_end.getSelectedItem().toString();
 	}
-	public String getCreneau() {
-		return this.listCreneau.getSelectedValue().toString();
+
+	public ArrayList<Creneau> getDataCreneauList() {
+		return this.creneau;
 	}
-	public int getCreneauLenght() {
-		return this.dataCreneauList.size();
-	}
-	public ArrayList<String> getDataCreneauList() {
-		return this.dataCreneauList;
-	}
-	public ArrayList<Creneau> getDBCreneauList() {
-		return this.dbCreneau;
-	}
-	
+
 	public JButton addCreneau() {
 		return this.ajouter;
 	}
+	
 	public JButton deleteCreneau() {
 		return this.supprimer;
+	}
+	
+	public void addNewCreneau(Creneau creneau) {
+		this.creneau.add(creneau);
+	}
+
+	public void deleteCreneau(int index) {
+		this.creneau.remove(index);
+	}
+	
+	public int getIndexListCreneau() {
+		return listCreneau.getSelectedIndex();
 	}
 }

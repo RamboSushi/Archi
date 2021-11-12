@@ -31,8 +31,6 @@ import modele.*;
 
 public class UETab {
 
-	private ArrayList<Ue> ue = new ArrayList<Ue>();
-
 	private JPanel panel;
 
 	private JLabel sigle = new JLabel("Sigle");
@@ -41,23 +39,19 @@ public class UETab {
 	private JTextArea sigleText = new JTextArea();
 	private JTextArea nominationText = new JTextArea();
 
-	JSplitPane splitPane;
-	JPanel panel1 = new JPanel();
-	JPanel panel2 = new JPanel();
-
+	private JButton createButton = new JButton("ajouter ue");
+	private JButton deleteButton = new JButton("supprimer ue");
+	
 	private JScrollPane scrollListUE= new JScrollPane();
 
-	DefaultListModel<Ue> listModel = new DefaultListModel<Ue>();
-	JList<Ue> listeUE = new JList<Ue>(listModel);
+	private ArrayList<Ue> ue = new ArrayList<Ue>();
+	private DefaultListModel<Ue> listModel = new DefaultListModel<Ue>();
+	private JList<Ue> listeUE = new JList<Ue>(listModel);
 
-	JButton createButton = new JButton("ajouter ue");
-	JButton deleteButton = new JButton("supprimer ue");
-
-	GridBagConstraints c = new GridBagConstraints();
+	private GridBagConstraints c = new GridBagConstraints();
 
 	public UETab(JPanel panel) {
-		this.panel=panel;
-		
+		this.panel=panel;		
 		this.panel.setLayout(new GridBagLayout());
 
 		initComponent();
@@ -102,33 +96,34 @@ public class UETab {
 	}
 
 	public void displayUE() {
-		int a = 0;
-		c.gridx = 0;
-		c.gridy = a;
-
 		listModel.clear();
 		
 		//System.out.println(ue.size());
 		for(int i = 0; i<ue.size();i++) {
 			listModel.addElement(ue.get(i));
 		}
-		panel1.repaint();
+		panel.repaint();
 		//panel1.updateUI();
 	}
 
 	public void writeErrorMessage(String str) {
 		if( str.equals("errorCreateUE") )
-			JOptionPane.showMessageDialog(panel1, "Impossible de cr�er une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(panel, "Impossible de creer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 		else if( str.equals("errorDeleteUE") )
-			JOptionPane.showMessageDialog(panel1, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(panel, "Impossible de supprimer une UE", "Erreur", JOptionPane.ERROR_MESSAGE);
 	}
+	
 
-	public void addNewUE(Ue ue) {
+	/**************/
+	/*** Setter ***/
+	/**************/
+	
+	public void setNewUE(Ue ue) {
 		this.ue.add(ue);
 	}
 
-	public void deleteUE(int index) {
-		ue.remove(index);
+	public void setDeleteUE(int index) {
+		this.ue.remove(index);
 	}
 
 	/**************/
