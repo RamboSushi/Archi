@@ -69,7 +69,7 @@ public class ClasseTab {
 		//position the elements
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		label = new JLabel("Année scolaire (Debut) :");
+		label = new JLabel("Annee scolaire (Debut) :");
 		c.gridx = 0;
 		c.gridy = 1;
 		classePanel.add(label, c);

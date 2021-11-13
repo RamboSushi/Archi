@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 
 public class Controlleur {
 	private Fenetre view;
-	private Parser parser = new Parser();
+	private Parser parser;
 	
 	private ArrayList<Object> creneau_read_parser;
 	private ArrayList<Object> ue_read_parser;
@@ -81,7 +81,13 @@ public class Controlleur {
 			String nomination = view.getUETab().getUEnomination();
 			
 			if(!(sigle.isEmpty() || nomination.isEmpty())){
-				Ue ue = new Ue(sigle, nomination);
+				Ue ue = null;
+				try {
+					ue = new Ue(sigle, nomination);
+				} catch (IllegalArgumentException ex){
+					view.getUETab().writeMessage("errorCreateUE");
+					return;
+				}
 				
 				//write in file
 				parser.write(ue.parse(), Ue.class);
@@ -94,10 +100,10 @@ public class Controlleur {
 				view.getSessionTab().getDataUeList().add(ue);
 				view.getSessionTab().displayUe();
 				
-				view.getUETab().writeMessage("successfullycreateUE");  
+				view.getUETab().writeMessage("successfullycreateUE");
 			}
 			else {
-				view.getUETab().writeMessage("errorCreateUE");  
+				view.getUETab().writeMessage("errorCreateUE");
 			}
 		}
 	 }
@@ -141,8 +147,14 @@ public class Controlleur {
 			String minute_begin = view.getCreneauTab().getMinuteBeginCreneau();
 			String minute_end = view.getCreneauTab().getMinuteEndCreneau();
 			
-			Creneau creneau = new Creneau(day, month, year, hour_begin, minute_begin,hour_end, minute_end);
-
+			Creneau creneau = null;
+			try {
+				creneau = new Creneau(day, month, year, hour_begin, minute_begin,hour_end, minute_end);
+			} catch (IllegalArgumentException ex){
+				view.getCreneauTab().writeMessage("errorCreateCreneau");
+				return;
+			}
+			
 			//write in file
 			parser.write(creneau.parse(), Creneau.class);
 			
@@ -155,7 +167,6 @@ public class Controlleur {
 			view.getSessionTab().displayCreneau();
 
 			view.getCreneauTab().writeMessage("successfullycreateCreneau");
-			
 		}
 	}
 
@@ -194,7 +205,13 @@ public class Controlleur {
 			String year = view.getClasseTab().getClasseYear();
 			
 			if(!formation.isEmpty()) {
-				Classe classe = new Classe(formation, year);
+				Classe classe = null;
+				try {
+					classe = new Classe(formation, year);
+				} catch (IllegalArgumentException ex){
+					view.getClasseTab().writeMessage("errorCreateClasse");
+					return;
+				}
 				
 				//write in file
 				parser.write(classe.parse(), Classe.class);

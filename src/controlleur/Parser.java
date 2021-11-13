@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
@@ -25,6 +27,14 @@ public class Parser {
 			path = Paths.get("").toAbsolutePath().toString() + "/data/";
 		} else {
 			path = Paths.get("").toAbsolutePath().toString();
+		}
+
+		Path pathdir = Paths.get(path);
+		try {
+			Files.createDirectories(pathdir);
+		} catch (IOException e) {
+			System.out.println("Erreur creation repertoire data");
+			e.printStackTrace();
 		}
 	}
 	
