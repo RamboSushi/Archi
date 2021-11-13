@@ -65,6 +65,7 @@ public class CreneauTab {
 	
 	private void initComponent() {
 		
+		//position the elements
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		label = new JLabel("Jour :");

@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -22,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -60,6 +62,11 @@ public class ClasseTab {
 	
 	private void initComponent() {
 		
+		//disable character ";" from JTextField
+		name_classe.getInputMap(JComponent.WHEN_FOCUSED).put(
+		        KeyStroke.getKeyStroke("typed ;"), "none");
+		
+		//position the elements
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		label = new JLabel("Année scolaire (Debut) :");

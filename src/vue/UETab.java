@@ -1,10 +1,12 @@
 package vue;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -63,7 +65,15 @@ public class UETab {
 	}
 
 	private void initComponent() {
+		
+		//disable character ";" from JTextField
+		sigleText.getInputMap(JComponent.WHEN_FOCUSED).put(
+		        KeyStroke.getKeyStroke("typed ;"), "none");
+		
+		nominationText.getInputMap(JComponent.WHEN_FOCUSED).put(
+		        KeyStroke.getKeyStroke("typed ;"), "none");
 	
+		//position the elements
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 		c.gridx = 0;

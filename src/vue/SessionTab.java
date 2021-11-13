@@ -72,6 +72,7 @@ public class SessionTab {
 	
 	private void initComponent() {
 		
+		//position the elements
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		label = new JLabel("UE :");
