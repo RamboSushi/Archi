@@ -84,11 +84,12 @@ public class Session {
 	
 	@Override
 	public String toString() {
-		String str = new String(ue + " avec " + classe + "\r\n");
+		String str = new String(ue + " avec " + classe + " le : [");
 		for (int i=0; i<creneaux.size(); i++) {
-			str += "  - " + creneaux.get(i) + "\r\n";
+			str += "[" + creneaux.get(i) + "],";
 		}
-		str = str.substring(0, str.length()-2);
+		str = str.substring(0, str.length()-1);
+		str += "]";
 		return str;
 	}
 	
