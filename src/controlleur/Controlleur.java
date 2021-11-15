@@ -266,7 +266,7 @@ public class Controlleur {
 			int selectedClasse = view.getSessionTab().getIndexListClasse();
 			int[] selectedCreneau = view.getSessionTab().getIndexListCreneau();
 	
-			if(selectedUe >= 0 && selectedClasse >= 0 && selectedCreneau.length != 0) {
+			if(selectedUe >= 0 && selectedClasse >= 0 ) {
 				
 				Ue ue = view.getSessionTab().getDataUeList().get(selectedUe);
 				Classe classe = view.getSessionTab().getDataClasseList().get(selectedClasse);
