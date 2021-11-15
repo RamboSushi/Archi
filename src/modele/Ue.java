@@ -40,7 +40,7 @@ public class Ue {
 
 	/**
 	 * edite la nomination d'une ue
-	 * @param sigle : un String contenant la nomination spécifique
+	 * @param nomination : un String contenant la nomination spécifique
 	 */
 	public void setNomination(String nomination) {
 		this.nomination = nomination;

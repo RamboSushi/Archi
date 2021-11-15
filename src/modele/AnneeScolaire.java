@@ -6,8 +6,8 @@ public class AnneeScolaire {
 	/**
 	 * Verifie si anneeDepart est valide , si oui il l'affecte a l'atribut
 	 * Depart
-	 * @param anneeDepart
-	 * @throws IllegalArgumentException
+	 * @param anneeDepart : un entier
+	 * @throws IllegalArgumentException : si le format annee est non conforme
 	 */
 	public AnneeScolaire (int anneeDepart) throws IllegalArgumentException {
 		if (!this.isValid(anneeDepart)) {
@@ -20,8 +20,8 @@ public class AnneeScolaire {
 	 * Constructeur de la classe AnneeScolaire , verifie is 
 	 * l'entree est valide si oui il met ca valeur dans l'attribut 
 	 * anneeDepart
-	 * @param anneeDepart
-	 * @throws IllegalArgumentException
+	 * @param anneeDepart : un entier
+	 * @throws IllegalArgumentException : si le format annee est non conforme
 	 */
 	public AnneeScolaire (String anneeDepart) throws IllegalArgumentException {
 		int anneeDepartInt = Integer.parseInt(anneeDepart);
@@ -42,7 +42,7 @@ public class AnneeScolaire {
 	
 	/**
 	 * Met la valeur de annee depart dans l'attribut annee depart
-	 * @param anneeDepart
+	 * @param anneeDepart : un entier
 	 */
 	public void setAnneeDepart(int anneeDepart) {
 		this.anneeDepart = anneeDepart;
@@ -71,7 +71,7 @@ public class AnneeScolaire {
 	/**
 	 * Verifier si annee depart est egal a l'annee de depart du 
 	 * parametre
-	 * @param anneeScolaire
+	 * @param anneeScolaire : une AnneeScolaire
 	 * @return un booleen
 	 */
 	public boolean equals(AnneeScolaire anneeScolaire) {

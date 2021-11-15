@@ -160,7 +160,7 @@ public class CreneauTab {
 	
 	/**
 	 * ajoute un créneau 
-	 * @param index : un Creneau contenant le creneau à ajouter
+	 * @param creneau : un Creneau contenant le creneau à ajouter
 	 */
 	public void setNewCreneau(Creneau creneau) {
 		this.creneau.add(creneau);

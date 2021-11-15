@@ -130,7 +130,7 @@ public class UETab {
 	
 	/**
 	 * ajoute une ue 
-	 * @param une Ue contenant l'ue à ajouter
+	 * @param ue : une Ue contenant l'ue à ajouter
 	 */
 	public void setNewUE(Ue ue) {
 		this.ue.add(ue);
