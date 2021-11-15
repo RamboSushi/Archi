@@ -3,6 +3,13 @@ package modele;
 public class DateScolaire {
 	private int jour, mois, annee;
 	
+	/**
+	 * Initialise les attributs de DateScolaire 
+	 * @param jour
+	 * @param mois
+	 * @param annee
+	 * @throws IllegalArgumentException
+	 */
 	public DateScolaire(int jour, int mois, int annee) throws IllegalArgumentException {
 		if (!this.isValid(jour, mois, annee)) {
 			throw new IllegalArgumentException("Format jour/mois/annee non conforme");
@@ -12,6 +19,13 @@ public class DateScolaire {
 			this.annee = annee;
 		}
 	}
+	/**
+	 * Initialise les attributs de DateScolaire
+	 * @param jour
+	 * @param mois
+	 * @param annee
+	 * @throws IllegalArgumentException
+	 */
 	public DateScolaire(String jour, String mois, String annee) throws IllegalArgumentException {
 		int jourInt = Integer.parseInt(jour);
 		int moisInt = Integer.parseInt(mois);
@@ -25,27 +39,61 @@ public class DateScolaire {
 		}
 	}
 	
+	/**
+	 * Retourne l'attribut jour
+	 * @return un int
+	 */
 	public int getJour() {
 		return jour;
 	}
+	
+	/**
+	 * Met la valeur jour dans l'attribut jour
+	 * @param jour
+	 */
 	public void setJour(int jour) {
 		this.jour = jour;
 	}
 
+	/**
+	 * Retourne l'attribut mois
+	 * @return un int
+	 */
 	public int getMois() {
 		return mois;
 	}
+	
+	/**
+	 * Met la valeur du parametre dans l'attribut mois
+	 * @param mois
+	 */
 	public void setMois(int mois) {
 		this.mois = mois;
 	}
 	
+	/**
+	 * Retourne l'attribut annee
+	 * @return un int
+	 */
 	public int getAnnee() {
 		return annee;
 	}
+	
+	/**
+	 * Met la valeur du parametre dans l'attribut annee
+	 * @param annee
+	 */
 	public void setAnnee(int annee) {
 		this.annee = annee;
 	}
 	
+	/**
+	 * Verifie si les jours , mois et annee sont valides 
+	 * @param jour
+	 * @param mois
+	 * @param annee
+	 * @return
+	 */
 	private boolean isValid(int jour, int mois, int annee) {
 		if (annee < 0) return false;
         if ((mois < 1) || (mois > 12)) return false;
@@ -66,6 +114,11 @@ public class DateScolaire {
         }
 	}
 	
+	/**
+	 * Verifie si l'annee est valide 
+	 * @param annee
+	 * @return un booleen 
+	 */
 	private static boolean verifAnnee(int annee) {
 		if (annee % 4 != 0) {
 			return false;
@@ -78,15 +131,31 @@ public class DateScolaire {
 		}        
 	} 
 
+	/**
+	 * Verifie si le les attributs du parametres sont egals
+	 * a ceux de l'objet
+	 * @param dateScolaire
+	 * @return
+	 */
 	public boolean compateTo(DateScolaire dateScolaire) {
 		return (jour <= dateScolaire.getJour()) && (mois <= dateScolaire.getMois()) && (annee <= dateScolaire.getAnnee());
 	}
 
 	@Override
+	/**
+	 * Override de la methode toString qui affiche les 
+	 * attributs
+	 */
 	public String toString() {
 		return jour + "/" + mois + "/" + annee;
 	}
 	
+	/**
+	 * Verifie si les attributs du parametre sont egals
+	 * a ceux de l'objet
+	 * @param dateScolaire
+	 * @return un boolean 
+	 */
 	public boolean equals(DateScolaire dateScolaire) {
 		if (jour == dateScolaire.getJour() &&
 			mois == dateScolaire.getMois() &&
@@ -96,6 +165,10 @@ public class DateScolaire {
 		return false;
 	}
 	
+	/**
+	 * Retourne les attributs separe par un point virgule
+	 * @return string
+	 */
 	public String parse() {
 		return jour + ";" + mois + ";" + annee;
 	}
