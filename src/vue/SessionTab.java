@@ -3,30 +3,15 @@ package vue;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.plaf.DimensionUIResource;
 
 import modele.*;
 
@@ -38,8 +23,6 @@ public class SessionTab {
 	private JButton ajouter = new JButton("ajouter une Session");
 	private JButton supprimer = new JButton("supprimer une Session");
 	private JLabel label = new JLabel();
-	
-	private JTextField name_session = new JTextField();
 	
 	private JScrollPane scrollListSessionUe = new JScrollPane();
 	private JScrollPane scrollListSessionClasse = new JScrollPane();

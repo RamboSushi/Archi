@@ -9,6 +9,11 @@ import java.awt.Color;
 
 public class Fenetre extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private static final int WIDTH = 550;
 	private static final int HEIGHT =550;
 

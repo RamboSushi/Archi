@@ -3,15 +3,8 @@ package controlleur;
 import modele.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-
-import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import vue.*;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Controlleur {
 	private Fenetre view;
