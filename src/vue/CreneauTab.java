@@ -28,7 +28,6 @@ public class CreneauTab {
 	
 	private JButton ajouter = new JButton("ajouter un creneau");
 	private JButton supprimer = new JButton("supprimer un creneau");
-	private JButton load = new JButton("Init Load");
 	
 	private JLabel label = new JLabel();
 	
@@ -37,12 +36,12 @@ public class CreneauTab {
 	private String[] option_hours = { "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24" };
 	private String[] option_minutes = { "00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60" };
 	
-	private JComboBox box_days = new JComboBox(option_days);
-	private JComboBox box_months = new JComboBox(option_months);
-	private JComboBox box_hour_begin = new JComboBox(option_hours);
-	private JComboBox box_hour_end = new JComboBox(option_hours);
-	private JComboBox box_minute_begin = new JComboBox(option_minutes);
-	private JComboBox box_minute_end = new JComboBox(option_minutes);
+	private JComboBox<String> box_days = new JComboBox<String>(option_days);
+	private JComboBox<String> box_months = new JComboBox<String>(option_months);
+	private JComboBox<String> box_hour_begin = new JComboBox<String>(option_hours);
+	private JComboBox<String> box_hour_end = new JComboBox<String>(option_hours);
+	private JComboBox<String> box_minute_begin = new JComboBox<String>(option_minutes);
+	private JComboBox<String> box_minute_end = new JComboBox<String>(option_minutes);
 	
 	private int year = ZonedDateTime.now(ZoneId.of("CET")).getYear();
 	private SpinnerModel value =  new SpinnerNumberModel(year,year-10,year+10,1);  
