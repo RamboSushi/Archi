@@ -59,6 +59,10 @@ public class ClasseTab {
 		
 		initComponent();
 	}
+	/**
+	 * initialise les composants de l'onglet Classe
+	 */
+	
 	
 	private void initComponent() {
 		
@@ -98,6 +102,10 @@ public class ClasseTab {
 		
 		displayClasse();
 	}
+	
+	/**
+	 * rafraichit l'affichage des classes
+	 */
 
 	public void displayClasse() {
 		listModel.clear();
@@ -107,6 +115,10 @@ public class ClasseTab {
 		}
 		classePanel.repaint();
 	}
+	/**
+	 * Affiche une message pop-up
+	 * @param str : information sur le message a afficher
+	 */
 	
 	public void writeMessage(String str) {
 		if( str.equals("errorCreateClasse") )
@@ -122,10 +134,18 @@ public class ClasseTab {
 	/*** Setter ***/
 	/**************/
 	
+	/**
+	 * Ajoute une nouvelle classe
+	 * @param classe : Une Classe contentant la classe a ajouter
+	 */
 	public void setNewClasse(Classe classe) {
 		this.classe.add(classe);
 	}
 
+	/**
+	 * Supprime une classe
+	 * @param index : Un entier permettant de recuperer la classe a supprimer
+	 */
 	public void setDeleteClasse(int index) {
 		this.classe.remove(index);
 	}
@@ -135,25 +155,51 @@ public class ClasseTab {
 	/*** Getter ***/
 	/**************/
 	
+	/**
+	 * Retourne l'attribut Classe 
+	 * @return une liste de classe 
+	 */
 	public ArrayList<Classe> getDataClasseList() {
 		return this.classe;
 	}
 	
+	/**
+	 * Retourne l'attribut ajouter 
+	 * @return un bouton representant l'attribut ajouter
+	 */
 	public JButton getAddClasse() {
 		return this.ajouter;
 	}
+	
+	/**
+	 * Retourne l'attribut supprimer
+	 * @return un bouton representant l'attribut supprimer
+	 */
 	public JButton getDeleteClasse() {
 		return this.supprimer;
 	}
 	
+	/**
+	 * Retourne le text relative a une classe 
+	 * @return une chaine de caractere du texte relative a une classe
+	 */
 	public String getClasseFormation() {
 		return name_classe.getText();
 	}
 	
+	/**
+	 * Retourne l'annee d'une classe 
+	 * @return un string representant l'annee d'une classe
+	 */
 	public String getClasseYear() {
 		return spinner_years.getValue().toString();
 	}
-
+	
+	/**
+	 * Retourne l'index selectionne dans la liste des classes
+	 * @return un entier contenant l'index selectionner par l'utilisateur dans 
+	 * la liste de classe
+	 */
 	public int getIndexListClasse() {
 		return listClasse.getSelectedIndex();
 	}
