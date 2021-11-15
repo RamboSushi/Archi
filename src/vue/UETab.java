@@ -38,7 +38,11 @@ public class UETab {
 
 	private GridBagConstraints c = new GridBagConstraints();
 	
-
+	
+	/**
+	 * créer un onglet Ue
+	 * @param panel : un JPanel sur lequel afficher l'onglet Ue
+	 */
 	public UETab(JPanel panel) {
 		this.uePanel=panel;
 		this.uePanel.setLayout(new GridBagLayout());
@@ -124,10 +128,18 @@ public class UETab {
 	/*** Setter ***/
 	/**************/
 	
+	/**
+	 * ajoute une ue 
+	 * @param une Ue contenant l'ue à ajouter
+	 */
 	public void setNewUE(Ue ue) {
 		this.ue.add(ue);
 	}
-
+	
+	/**
+	 * supprime une ue 
+	 * @param index : un entier permettant de récupérer l'ue à supprimer
+	 */
 	public void setDeleteUE(int index) {
 		this.ue.remove(index);
 	}
@@ -136,26 +148,51 @@ public class UETab {
 	/*** Getter ***/
 	/**************/
 
+	/**
+	 * retourne le bouton ajouter ue
+	 * @return un JButton représentant le bouton ajouter 
+	 */
 	public JButton getAddUE() {
 		return this.createButton;
 	}
 
+	/**
+	 * retourne le bouton supprimer ue
+	 * @return un JButton représentant le bouton supprimer
+	 */
 	public JButton getDeleteUE() {
 		return this.deleteButton;
 	}
-
+	
+	/**
+	 * retourne le sigle d'une ue 
+	 * @return un entier contenant le sigle
+	 */
 	public String getUEsigle() {
 		return sigleText.getText();
 	}
 
+	/**
+	 * retourne la nomination d'une ue 
+	 * @return un entier contenant la nomination
+	 */
 	public String getUEnomination() {
 		return nominationText.getText();
 	}
-
+	
+	/**
+	 * retourne l'index selectionné dans la liste des ue
+	 * @return un entier contenant l'index sélectionné par l'utilisateur dans 
+	 * la liste des ue
+	 */
 	public int getIndexListUE() {
 		return listeUE.getSelectedIndex();
 	}
 	
+	/**
+	 * retourne la liste des ue
+	 * @return un ArrayList représentant la liste des ue
+	 */
 	public ArrayList<Ue> getDataUEList() {
 		return this.ue;
 	}

@@ -168,7 +168,7 @@ public class CreneauTab {
 
 	/**
 	 * supprime un créneau
-	 * @param index : un entier permettant de récupérer le créneau à suppriemr
+	 * @param index : un entier permettant de récupérer le créneau à supprimer
 	 */
 	public void setDeleteCreneau(int index) {
 		this.creneau.remove(index);
