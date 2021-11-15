@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.plaf.DimensionUIResource;
 
 import modele.*;
 
@@ -104,6 +105,7 @@ public class SessionTab {
 		sessionPanel.add(label, c);
 		
 		scrollListSession.setViewportView(listSession);
+		scrollListSession.setPreferredSize(new Dimension(100,140));
 		listSession.setLayoutOrientation(JList.VERTICAL);
 		listSession.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		c.gridx = 1;
