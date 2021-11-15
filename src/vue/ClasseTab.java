@@ -48,7 +48,7 @@ public class ClasseTab {
 
 
 	/**
-	 * cr�er un onglet classe
+	 * creer un onglet classe
 	 * @param panel : un JPanel sur lequel afficher l'onglet Classe
 	 */
 	public ClasseTab(JPanel panel) {
