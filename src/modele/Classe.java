@@ -34,8 +34,8 @@ public class Classe {
 	}
 	
 	/**
-	 * Met la valeur de nomination dans l'attribut nomination
-	 * @param nomination
+	 * modifie dans l'attribut nomination
+	 * @param nomination : un String
 	 */
 	public void setNomination(String nomination) {
 		this.nomination = nomination;
@@ -50,8 +50,8 @@ public class Classe {
 	}
 	
 	/**
-	 * Met la valeur d'anneScolaire dans l'attribut anneeScolaire
-	 * @param anneeScolaire
+	 * modifie l'attribut anneeScolaire
+	 * @param anneeScolaire : une AnneeScolaire
 	 */
 	public void setAnneeScolaire(AnneeScolaire anneeScolaire) {
 		this.anneeScolaire = anneeScolaire;

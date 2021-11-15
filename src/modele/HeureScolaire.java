@@ -7,7 +7,7 @@ public class HeureScolaire {
 	 * creer une heure scolaire avec des informations spécifiques
 	 * @param heure : un entier
 	 * @param minute : un entier
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException : si le format HeureScolaire est non conforme
 	 */
 	public HeureScolaire(int heure, int minute) throws IllegalArgumentException {
 		if (!this.isValid(heure, minute)) {
@@ -22,7 +22,7 @@ public class HeureScolaire {
 	 * creer une heure scolaire avec des informations spécifiques
 	 * @param heure : un entier
 	 * @param minute : un entier
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException :si le format HeureScolaire est non conforme
 	 */
 	public HeureScolaire(String heure, String minute) throws IllegalArgumentException {
 		int heureInt = Integer.parseInt(heure);
@@ -69,8 +69,8 @@ public class HeureScolaire {
 	
 	/**
 	 * verifie si une heure est valide
-	 * @param heure
-	 * @param minute
+	 * @param heure : un int
+	 * @param minute : un int
 	 * @return un booleen
 	 */
 	private boolean isValid(int heure, int minute) {
@@ -80,9 +80,9 @@ public class HeureScolaire {
 	}
 	
 	/**
-	 * 
-	 * @param heureScolaire
-	 * @return
+	 * compare deux heures scolaires
+	 * @param heureScolaire : HeureScolaire
+	 * @return un booleen
 	 */
 	public boolean compateTo(HeureScolaire heureScolaire) {
 		return (heure <= heureScolaire.getHeure()) && (minute <= heureScolaire.getMinute());
@@ -98,7 +98,7 @@ public class HeureScolaire {
 	
 	/**
 	 * Compare deux heureScolaires
-	 * @param heureScolaire
+	 * @param heureScolaire : HeureScolaire
 	 * @return un booleen
 	 */
 	public boolean equals(HeureScolaire heureScolaire) {

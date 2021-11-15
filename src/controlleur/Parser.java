@@ -44,6 +44,7 @@ public class Parser {
 	/**
 	 * Ecrit dans les fichiers de data
 	 * @param str: string a  ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param c : classe
 	 */
 	public void write(String str, Class<?> c) {
 		FileWriter writer = null;
@@ -77,6 +78,7 @@ public class Parser {
 	/**
 	 * Efface la ligne dans les fichiers de data
 	 * @param str: string a  effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param c : classe 
 	 */
 	public void remove(String str, Class<?> c) {
 		String allstr = new String();

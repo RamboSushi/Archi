@@ -48,8 +48,8 @@ public class Creneau {
 	}
 	
 	/**
-	 * met la valeur de date dans l'attribut date
-	 * @param date
+	 * modifie l'attribut date
+	 * @param date : une DateScolaire
 	 */
 	public void setDate(DateScolaire date) {
 		this.date = date;
@@ -57,7 +57,7 @@ public class Creneau {
 	
 	/**
 	 * retourne l'attribut horaireDepart
-	 * @return une HeureScolaire
+	 * @return une HeureScolaire : une HeureScolaire
 	 */
 	public HeureScolaire getHoraireDepart() {
 		return horaireDepart;
@@ -65,7 +65,7 @@ public class Creneau {
 	
 	/**
 	 * Met la valeur du parametre dans l'attribut horaireDepart
-	 * @param horaireDepart
+	 * @param horaireDepart : une HeureScolaire
 	 */
 	public void setHoraireDepart(HeureScolaire horaireDepart) {
 		this.horaireDepart = horaireDepart;
@@ -73,7 +73,7 @@ public class Creneau {
 	
 	/**
 	 * Retourne l'attribut horaireFin
-	 * @return une HeureScolaire
+	 * @return une HeureScolaire : une HeureScolaire
 	 */
 	public HeureScolaire getHoraireFin() {
 		return horaireFin;
@@ -81,7 +81,7 @@ public class Creneau {
 	
 	/**
 	 * met la valeur du parametre dans l'attribut horaireFIn
-	 * @param horaireFin
+	 * @param horaireFin : une HeureScolaire
 	 */
 	public void setHoraireFin(HeureScolaire horaireFin) {
 		this.horaireFin = horaireFin;
