@@ -56,7 +56,11 @@ public class Ue {
 		return sigle + ":" + nomination;
 	}
 	
-	
+	/**
+	 *  compare deux Classes
+	 * @param ue : une ue
+	 * @return un booleen 
+	 */
 	public boolean equals(Ue ue) {
 		if (nomination.equals(ue.getNomination()) &&
 			sigle.equals(ue.getSigle())) {

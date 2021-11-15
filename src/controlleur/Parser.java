@@ -43,7 +43,7 @@ public class Parser {
 
 	/**
 	 * Ecrit dans les fichiers de data
-	 * @param String str: string Ã  ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param str: string a  ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
 	 */
 	public void write(String str, Class<?> c) {
 		FileWriter writer = null;
@@ -76,7 +76,7 @@ public class Parser {
 
 	/**
 	 * Efface la ligne dans les fichiers de data
-	 * @param String str: string Ã  effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param str: string a  effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
 	 */
 	public void remove(String str, Class<?> c) {
 		String allstr = new String();
@@ -126,7 +126,7 @@ public class Parser {
 
 	/**
 	 * Recupere tout le contenue d'un fichier de data
-	 * @param Class c, la classe de l'objet (Object.class), pour cibler quel fichier on veut
+	 * @param c, la classe de l'objet (Object.class), pour cibler quel fichier on veut
 	 * @return une ArrayList d'objet de la classe donnee en parametre
 	 */
 	public ArrayList<Object> read(Class<?> c) {

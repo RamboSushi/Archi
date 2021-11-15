@@ -66,8 +66,8 @@ public class Classe {
 	}
 	
 	/**
-	 * 
-	 * @param classe
+	 *  compare deux Classes
+	 * @param classe : une Classe
 	 * @return un booleen 
 	 */
 	public boolean equals(Classe classe) {

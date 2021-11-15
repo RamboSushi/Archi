@@ -6,13 +6,13 @@ public class Creneau {
 	
 	/**
 	 * Initialise les attributs de la classe creneau 
-	 * @param jour
-	 * @param mois
-	 * @param annee
-	 * @param heureDepart
-	 * @param minuteDepart
-	 * @param heureFin
-	 * @param minuteFin
+	 * @param jour : un entier
+	 * @param mois : un entier
+	 * @param annee : un entier
+	 * @param heureDepart : un entier
+	 * @param minuteDepart : un entier
+	 * @param heureFin : un entier
+	 * @param minuteFin : un entier
 	 */
 	public Creneau(int jour, int mois, int annee,
 					int heureDepart, int minuteDepart,
@@ -23,13 +23,13 @@ public class Creneau {
 	}
 	/**
 	 * Initialise les attributs de classe Creneau 
-	 * @param jour
-	 * @param mois
-	 * @param annee
-	 * @param heureDepart
-	 * @param minuteDepart
-	 * @param heureFin
-	 * @param minuteFin
+	 * @param jour : un entier
+	 * @param mois : un entier
+	 * @param annee : un entier
+	 * @param heureDepart : un entier
+	 * @param minuteDepart : un entier
+	 * @param heureFin : un entier
+	 * @param minuteFin : un entier
 	 */
 	public Creneau(String jour, String mois, String annee,
 					String heureDepart, String minuteDepart,
@@ -96,8 +96,8 @@ public class Creneau {
 	}
 	
 	/**
-	 * 
-	 * @param creneau
+	 * compare deux Creneaux
+	 * @param creneau : un creneau
 	 * @return un booleen 
 	 */
 	public boolean equals(Creneau creneau) {
