@@ -205,10 +205,18 @@ public class SessionTab {
 	/*** Setter ***/
 	/**************/
 	
+	/**
+	 * modifie l'attribut session
+	 * @param session : Session
+	 */
 	public void setNewSession(Session session) {
 		this.session.add(session);
 	}
-
+	
+	/**
+	 * modifie l'attribut session
+	 * @param index : un entier pour récupérer l'index d'une session dans la liste
+	 */
 	public void setDeleteSession(int index) {
 		this.session.remove(index);
 	}
@@ -218,40 +226,86 @@ public class SessionTab {
 	/*** Getter ***/
 	/**************/
 	
+	/**
+	 * retourne la liste des ue
+	 * @return un ArrayList représentant la liste des ue
+	 */
 	public ArrayList<Ue> getDataUeList() {
 		return this.ue;
 	}
 	
+	/**
+	 * retourne la liste des classe
+	 * @return un ArrayList représentant la liste des classe
+	 */
 	public ArrayList<Classe> getDataClasseList() {
 		return this.classe;
 	}
 	
+	/**
+	 * retourne la liste des creneaux
+	 * @return un ArrayList représentant la liste des creneaux
+	 */
 	public ArrayList<Creneau> getDataCreneauList() {
 		return this.creneau;
 	}
 	
+	/**
+	 * retourne la liste des sessions
+	 * @return un ArrayList représentant la liste des sessions
+	 */
 	public ArrayList<Session> getDataSessionList() {
 		return this.session;
 	}
 	
+	/**
+	 * retourne le bouton ajouter session
+	 * @return un JButton représentant le bouton ajouter
+	 */
 	public JButton getAddSession() {
 		return this.ajouter;
 	}
+	
+	/**
+	 * retourne le bouton supprimer créneau
+	 * @return un JButton représentant le bouton supprimer
+	 */
 	public JButton getDeleteSession() {
 		return this.supprimer;
 	}
 	
+	/**
+	 * retourne l'index selectionné dans la liste des ues
+	 * @return un entier contenant l'index sélectionné par l'utilisateur dans 
+	 * la liste des ues
+	 */
 	public int getIndexListUE() {
 		return listUe.getSelectedIndex();
 	}
+	
+	/**
+	 * retourne l'index selectionné dans la liste des classes
+	 * @return un entier contenant l'index sélectionné par l'utilisateur dans 
+	 * la liste des classes
+	 */
 	public int getIndexListClasse() {
 		return listClasse.getSelectedIndex();
 	}
 	
+	/**
+	 * retourne l'index selectionné dans la liste des créneaux
+	 * @return un entier contenant l'index sélectionné par l'utilisateur dans 
+	 * la liste des créneaux
+	 */
 	public int[] getIndexListCreneau() {
 		return listCreneau.getSelectedIndices();
 	}
 	
+	/**
+	 * retourne l'index selectionné dans la liste des sessions
+	 * @return un entier contenant l'index sélectionné par l'utilisateur dans 
+	 * la liste des sessions
+	 */
 	public int getIndexListSession() {
 		return listSession.getSelectedIndex();
 	}

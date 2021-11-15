@@ -40,7 +40,7 @@ public class Ue {
 
 	/**
 	 * edite la nomination d'une ue
-	 * @param sigle : un String contenant la nomination spécifique
+	 * @param nomination : un String contenant la nomination spécifique
 	 */
 	public void setNomination(String nomination) {
 		this.nomination = nomination;
@@ -56,7 +56,11 @@ public class Ue {
 		return sigle + ":" + nomination;
 	}
 	
-	
+	/**
+	 *  compare deux Classes
+	 * @param ue : une ue
+	 * @return un booleen 
+	 */
 	public boolean equals(Ue ue) {
 		if (nomination.equals(ue.getNomination()) &&
 			sigle.equals(ue.getSigle())) {

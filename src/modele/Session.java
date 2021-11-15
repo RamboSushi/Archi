@@ -60,15 +60,15 @@ public class Session {
 	}
 	
 	/**
-	 * 
-	 * @param jour
-	 * @param mois
-	 * @param annee
-	 * @param heureDepart
-	 * @param minuteDepart
-	 * @param heureFin
-	 * @param minuteFin
-	 * @return
+	 * recherche un creneau et le renvoie s'il existe
+	 * @param jour : String
+	 * @param mois : String
+	 * @param annee : String
+	 * @param heureDepart : String
+	 * @param minuteDepart : String
+	 * @param heureFin : String
+	 * @param minuteFin : String
+	 * @return Creneau
 	 */
 	public Creneau findCreneau(String jour, String mois,String annee, String heureDepart, String minuteDepart, String heureFin, String minuteFin) {
 		Creneau creneau = new Creneau(jour, mois, annee, heureDepart, minuteDepart, heureFin, minuteFin);
@@ -81,15 +81,15 @@ public class Session {
 		}
 	
 	/**
-	 * 
-	 * @param jour
-	 * @param mois
-	 * @param annee
-	 * @param heureDepart
-	 * @param minuteDepart
-	 * @param heureFin
-	 * @param minuteFin
-	 * @return
+	 * recherche un creneau et le renvoie s'il existe
+	 * @param jour : entier
+	 * @param mois : entier
+	 * @param annee : entier
+	 * @param heureDepart : entier
+	 * @param minuteDepart : entier
+	 * @param heureFin : entier
+	 * @param minuteFin : entier
+	 * @return Creneau
 	 */
 	public Creneau findCreneau(int jour, int mois, int annee, int heureDepart, int minuteDepart, int heureFin, int minuteFin) {
 		Creneau creneau = new Creneau(jour, mois, annee, heureDepart, minuteDepart, heureFin, minuteFin);
@@ -102,9 +102,9 @@ public class Session {
 	}
 	
 	/**
-	 * 
-	 * @param creneau
-	 * @return
+	 * recherche un creneau et le renvoie s'il existe
+	 * @param creneau : Creneau
+	 * @return creneau
 	 */
 	public Creneau findCreneau(Creneau creneau) {
 		for (int i=0; i<creneaux.size(); i++) {
@@ -183,7 +183,7 @@ public class Session {
 	
 	/**
 	 * Compare deux sessions et verifie si elle existe deja
-	 * @param session 
+	 * @param session : Session
 	 * @return un booleen
 	 */
 	public boolean equals(Session session) {

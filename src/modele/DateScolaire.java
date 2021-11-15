@@ -8,7 +8,7 @@ public class DateScolaire {
 	 * @param jour : un entier
 	 * @param mois : un entier
 	 * @param annee : un entier
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException : si le format dateScolaire est non conforme
 	 */
 	public DateScolaire(int jour, int mois, int annee) throws IllegalArgumentException {
 		if (!this.isValid(jour, mois, annee)) {
@@ -24,7 +24,7 @@ public class DateScolaire {
 	 * @param jour : un String
 	 * @param mois : un String
 	 * @param annee : un String
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException : si le format DateScolaire est non conforme
 	 */
 	public DateScolaire(String jour, String mois, String annee) throws IllegalArgumentException {
 		int jourInt = Integer.parseInt(jour);
@@ -49,7 +49,7 @@ public class DateScolaire {
 	
 	/**
 	 * Met la valeur jour dans l'attribut jour
-	 * @param jour
+	 * @param jour : un int
 	 */
 	public void setJour(int jour) {
 		this.jour = jour;
@@ -65,7 +65,7 @@ public class DateScolaire {
 	
 	/**
 	 * Met la valeur du parametre dans l'attribut mois
-	 * @param mois
+	 * @param mois : un int
 	 */
 	public void setMois(int mois) {
 		this.mois = mois;
@@ -81,7 +81,7 @@ public class DateScolaire {
 	
 	/**
 	 * Met la valeur du parametre dans l'attribut annee
-	 * @param annee
+	 * @param annee : un int
 	 */
 	public void setAnnee(int annee) {
 		this.annee = annee;
@@ -89,10 +89,10 @@ public class DateScolaire {
 	
 	/**
 	 * Verifie si les jours , mois et annee sont valides 
-	 * @param jour
-	 * @param mois
-	 * @param annee
-	 * @return
+	 * @param jour : un int
+	 * @param mois : un int
+	 * @param annee : un int
+	 * @return un booleen
 	 */
 	private boolean isValid(int jour, int mois, int annee) {
 		if (annee < 0) return false;
@@ -116,7 +116,7 @@ public class DateScolaire {
 	
 	/**
 	 * Verifie si l'annee est valide 
-	 * @param annee
+	 * @param annee : un int
 	 * @return un booleen 
 	 */
 	private static boolean verifAnnee(int annee) {
@@ -134,8 +134,8 @@ public class DateScolaire {
 	/**
 	 * Verifie si le les attributs du parametres sont egals
 	 * a ceux de l'objet
-	 * @param dateScolaire
-	 * @return
+	 * @param dateScolaire : DateScolaire
+	 * @return booleen
 	 */
 	public boolean compateTo(DateScolaire dateScolaire) {
 		return (jour <= dateScolaire.getJour()) && (mois <= dateScolaire.getMois()) && (annee <= dateScolaire.getAnnee());
@@ -143,8 +143,7 @@ public class DateScolaire {
 
 	@Override
 	/**
-	 * Override de la methode toString qui affiche les 
-	 * attributs
+	 * Override de la methode toString qui affiche les attributs
 	 */
 	public String toString() {
 		return jour + "/" + mois + "/" + annee;
@@ -153,7 +152,7 @@ public class DateScolaire {
 	/**
 	 * Verifie si les attributs du parametre sont egaux
 	 * a ceux de l'objet
-	 * @param dateScolaire
+	 * @param dateScolaire : DateScolaire
 	 * @return un boolean 
 	 */
 	public boolean equals(DateScolaire dateScolaire) {

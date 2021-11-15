@@ -14,7 +14,10 @@ import modele.*;
 
 public class Parser {
 	private String path = new String();
-	
+
+	/**
+	 * Constructeur du parser, initialise la variable "path" celon l'os ou l'on executre
+	 */
 	public Parser() {
 		String OS = new String(System.getProperty("os.name").toLowerCase()); //detection OS
 		if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
@@ -37,8 +40,13 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-	
-	public void write(String str, Class<?> c) { // str=string Ã  ecrire (xxx.parse()) - c=classe de l'objet (xxx.class)
+
+	/**
+	 * Ecrit dans les fichiers de data
+	 * @param str: string a  ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param c : classe
+	 */
+	public void write(String str, Class<?> c) {
 		FileWriter writer = null;
 		File file = null;
 		switch(c.getSimpleName()) {
@@ -66,8 +74,13 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-	
-	public void remove(String str, Class<?> c) { // str=string Ã  retirer (xxx.parse()) - c=classe de l'objet (xxx.class)
+
+	/**
+	 * Efface la ligne dans les fichiers de data
+	 * @param str: string a  effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 * @param c : classe 
+	 */
+	public void remove(String str, Class<?> c) {
 		String allstr = new String();
 		BufferedReader reader = null;
 		FileWriter writer = null;
@@ -112,8 +125,13 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-	
-	public ArrayList<Object> read(Class<?> c) {// c=classe de l'objet (xxx.class)
+
+	/**
+	 * Recupere tout le contenue d'un fichier de data
+	 * @param c, la classe de l'objet (Object.class), pour cibler quel fichier on veut
+	 * @return une ArrayList d'objet de la classe donnee en parametre
+	 */
+	public ArrayList<Object> read(Class<?> c) {
 		BufferedReader reader = null;
 		File file = null;
 		ArrayList<Object> obj = new ArrayList<Object>();
@@ -178,6 +196,10 @@ public class Parser {
 		return obj;
 	}
 
+	/**
+	 * Retourne l'attribut path
+	 * @return un String
+	 */
 	public String getPath() {
 		return path;
 	}
