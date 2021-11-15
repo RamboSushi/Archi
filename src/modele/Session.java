@@ -7,24 +7,49 @@ public class Session {
 	private Classe classe;
 	private ArrayList<Creneau> creneaux = new ArrayList<>();
 	
+	/**
+	 * creer une session avec des informations spécifiques
+	 * @param ue : une Ue contenant une ue spécifique
+	 * @param classe : une Classe contenant une classe spécifique
+	 */
 	public Session(Ue ue, Classe classe) {
 		this.ue = ue;
 		this.classe = classe;
 	}
+	
+	/**
+	 * creer une session avec des informations spécifiques
+	 * @param ue : une Ue contenant une ue spécifique 
+	 * @param classe : une Classe contenant une classe specifique
+	 * @param creneaux : un ArrayList contenant la liste des créneaux
+	 */
 	public Session(Ue ue, Classe classe, ArrayList<Creneau> creneaux) {
 		this.ue = ue;
 		this.classe = classe;
 		this.creneaux = creneaux;
 	}
 	
+	/**
+	 * ajoute un créneau
+	 * @param creneau : un Creneau contenant le creneau a ajouter
+	 */
 	public void ajoutCreneau(Creneau creneau) {
 		creneaux.add(creneau);
 	}
 	
+	/**
+	 * supprime un créneau
+	 * @param creneau : un Creneau contenant le creneau a supprimer
+	 */
 	public void retirerCreneau(Creneau creneau) {
 		creneaux.remove(creneau);
 	}
 	
+	/**
+	 * Compare deux créneaux et verifie s'il existe deja
+	 * @param creneau : un Creneau 
+	 * @return un booleen 
+	 */
 	public boolean existeCreneau(Creneau creneau) {
 		for (int i=0; i<creneaux.size(); i++) {
 			if(creneau.equals(creneaux.get(i))){

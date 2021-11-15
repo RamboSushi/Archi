@@ -5,17 +5,21 @@ public class Classe {
 	private AnneeScolaire anneeScolaire;
 	
 	/**
-	 * Constructeur de la classe Classe qui met la 
-	 * valeur du parametre nomination dans l'attribut nomination
-	 * et met la valeur d'anneeDepart dans l'attribut 
-	 * correpondant
-	 * @param nomination
-	 * @param anneeDepart
+	 * creer une classe avec avec des noms spécifiques
+	 * @param nomination : un String contenant la nomination spécifique
+	 * @param anneeDepart : un entier contentant l'année de départ spécifique
 	 */
 	public Classe(String nomination, int anneeDepart) {
 		this.nomination = nomination;
 		this.anneeScolaire = new AnneeScolaire(anneeDepart);
 	}
+
+	/**
+	 * creer une classe avec avec des noms spécifiques
+	 * @param nomination : un String contenant la nomination spécifique
+	 * @param anneeDepart : un String contentant l'année de départ spécifique
+	 */
+	
 	public Classe(String nomination, String anneeDepart) {
 		this.nomination = nomination;
 		this.anneeScolaire = new AnneeScolaire(anneeDepart);
