@@ -1,5 +1,7 @@
 package controlleur;
 
+import java.util.ArrayList;
+
 import modele.*;
 import vue.*;
 
