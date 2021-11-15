@@ -24,7 +24,9 @@ public class Fenetre extends JFrame {
 	private ClasseTab classeTab = new ClasseTab(classePanel);
 	private SessionTab sessionTab = new SessionTab(sessionPanel);
 
-	/*** Constructor ***/
+	/**
+	 * Créer un nouvelle fenêtre d'affichage
+	 */
 	public Fenetre(){
 	    this.setTitle("Archi");
 	    this.setSize(WIDTH, HEIGHT);
@@ -35,6 +37,9 @@ public class Fenetre extends JFrame {
 	    initComponent();
 	}
 
+	/**
+	 * initialise les composants de la fenetre
+	 */
 	private void initComponent() {
 
 		tab.add("UE", uePanel);
@@ -47,18 +52,34 @@ public class Fenetre extends JFrame {
 	    this.getContentPane().add(tab);
 	}
 
-
+	/**
+	 * retourne l'onglet Ue
+	 * @return une Ue contenant l'onglet ue
+	 */
 	public UETab getUETab() {
 		return this.ueTab;
 	}
+	
+	/**
+	 * retourne l'onglet creneau
+	 * @return un Creneau contenant l'onglet creneau
+	 */
 	public CreneauTab getCreneauTab() {
 		return this.creneauTab;
 	}
 	
+	/**
+	 * retourne l'onglet classe
+	 * @return une Classe contenant l'onglet classe
+	 */
 	public ClasseTab getClasseTab() {
 		return this.classeTab;
 	}
 	
+	/**
+	 * retourne l'onglet session
+	 * @return un Session contenant l'onglet session
+	 */
 	public SessionTab getSessionTab() {
 		return this.sessionTab;
 	}
