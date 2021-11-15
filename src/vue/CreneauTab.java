@@ -63,6 +63,9 @@ public class CreneauTab {
 		initComponent();
 	}
 	
+	/**
+	 * initialise les composants de l'onglet créneau
+	 */
 	private void initComponent() {
 		
 		//position the elements
@@ -126,6 +129,9 @@ public class CreneauTab {
 		
 	}
 	
+	/**
+	 * rafraichit l'affichage des créneaux
+	 */
 	public void displayCreneau() {
 		listModel.clear();
 		
@@ -135,6 +141,10 @@ public class CreneauTab {
 		creneauPanel.repaint();
 	}
 	
+	/**
+	 * Affiche un message pop-up 
+	 * @param str : information sur le message à afficher
+	 */
 	public void writeMessage(String str) {
 		if( str.equals("errorCreateCreneau") )
 			JOptionPane.showMessageDialog(creneauPanel, "Impossible de creer un creneau", "erreur", JOptionPane.ERROR_MESSAGE);
@@ -148,10 +158,18 @@ public class CreneauTab {
 	/*** Setter ***/
 	/**************/
 	
+	/**
+	 * ajoute un créneau 
+	 * @param index : index permettant d'ajouter un créneau
+	 */
 	public void setNewCreneau(Creneau creneau) {
 		this.creneau.add(creneau);
 	}
 
+	/**
+	 * supprime un créneau
+	 * @param index : index permettant de supprimer le créneau sélectionné
+	 */
 	public void setDeleteCreneau(int index) {
 		this.creneau.remove(index);
 	}
@@ -160,40 +178,91 @@ public class CreneauTab {
 	/*** Getter ***/
 	/**************/
 	
+	/**
+	 * 
+	 * @return retourne le jour d'un créneau
+	 */
 	public String getDayCreneau() {
 		return this.box_days.getSelectedItem().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne le mois d'un créneau
+	 */
 	public String getMonthCreneau() {
 		return this.box_months.getSelectedItem().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne l'année d'un créneau
+	 */
 	public String getYearCreneau() {
 		return this.spinner_years.getValue().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne l'heure de départ d'un créneau
+	 */
 	public String getHourBeginCreneau() {
 		return this.box_hour_begin.getSelectedItem().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne l'heure de fin d'un créneau
+	 */
 	public String getHourEndCreneau() {
 		return this.box_hour_end.getSelectedItem().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne la minute de départ d'un créneau
+	 */
 	public String getMinuteBeginCreneau() {
 		return this.box_minute_begin.getSelectedItem().toString();
 	}
+	
+	/**
+	 * 
+	 * @return retourne la minute de fin d'un créneau
+	 */
 	public String getMinuteEndCreneau() {
 		return this.box_minute_end.getSelectedItem().toString();
 	}
 
+	/**
+	 * 
+	 * @return retourne ArrayList contenant les créneaux
+	 */
 	public ArrayList<Creneau> getDataCreneauList() {
 		return this.creneau;
 	}
-
+	
+	/**
+	 * 
+	 * @return retourne le bouton ajouter créneau
+	 */
 	public JButton addCreneau() {
 		return this.ajouter;
 	}
 	
+	/**
+	 * 
+	 * @return retourne le bouton supprimer créneau
+	 */
 	public JButton deleteCreneau() {
 		return this.supprimer;
 	}
 	
+	/**
+	 * 
+	 * @return retourne l'index sélectionné par l'utilisateur dans 
+	 * la liste des créneaux
+	 */
 	public int getIndexListCreneau() {
 		return listCreneau.getSelectedIndex();
 	}

@@ -1,37 +1,19 @@
 package vue;
+
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.MenuKeyListener;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
-
-import javax.swing.BoxLayout;
-import controlleur.Controlleur;
-
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.Insets;
 import java.awt.GridBagConstraints;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 
 import modele.*;
 
@@ -64,6 +46,9 @@ public class UETab {
 		initComponent();
 	}
 
+	/**
+	 * initialise les composants de l'onglet ue
+	 */
 	private void initComponent() {
 		
 		//disable character ";" from JTextField
@@ -109,7 +94,9 @@ public class UETab {
 
 	}
 	
-	/*** Display list of Ue ***/
+	/**
+	 * rafraichit l'affichage des ue
+	 */
 	public void displayUE() {
 		listModel.clear();
 		
@@ -118,7 +105,11 @@ public class UETab {
 		}
 		uePanel.repaint();
 	}
-
+	
+	/**
+	 * Affiche un message pop-up 
+	 * @param str : information sur le message à afficher
+	 */
 	public void writeMessage(String str) {
 		if( str.equals("errorCreateUE") )
 			JOptionPane.showMessageDialog(uePanel, "Impossible de creer une ue", "erreur", JOptionPane.ERROR_MESSAGE);
