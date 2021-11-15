@@ -15,6 +15,9 @@ import modele.*;
 public class Parser {
 	private String path = new String();
 	
+	/**
+	 * Constructeur du parser, initialise la variable "path" celon l'os ou l'on executre
+	 */
 	public Parser() {
 		String OS = new String(System.getProperty("os.name").toLowerCase());
 		if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
@@ -38,6 +41,10 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Ecrit dans les fichiers de data
+	 * @param String str: string à ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 */
 	public void write(String str, Class<?> c) {
 		FileWriter writer = null;
 		File file = null;
@@ -67,6 +74,10 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Efface la ligne dans les fichiers de data
+	 * @param String str: string à effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
+	 */
 	public void remove(String str, Class<?> c) {
 		String allstr = new String();
 		BufferedReader reader = null;
@@ -113,6 +124,11 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Recupere tout le contenue d'un fichier de data
+	 * @param Class c, la classe de l'objet (Object.class), pour cibler quel fichier on veut
+	 * @return une ArrayList d'objet de la classe donnee en parametre
+	 */
 	public ArrayList<Object> read(Class<?> c) {
 		BufferedReader reader = null;
 		File file = null;
@@ -178,6 +194,10 @@ public class Parser {
 		return obj;
 	}
 
+	/**
+	 * Retourne l'attribut path
+	 * @return un String
+	 */
 	public String getPath() {
 		return path;
 	}
