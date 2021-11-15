@@ -14,12 +14,12 @@ import modele.*;
 
 public class Parser {
 	private String path = new String();
-	
+
 	/**
 	 * Constructeur du parser, initialise la variable "path" celon l'os ou l'on executre
 	 */
 	public Parser() {
-		String OS = new String(System.getProperty("os.name").toLowerCase());
+		String OS = new String(System.getProperty("os.name").toLowerCase()); //detection OS
 		if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
 			path = Paths.get("").toAbsolutePath().toString() + "/data/";
 		} else if (OS.indexOf("win") >= 0) {
@@ -34,13 +34,13 @@ public class Parser {
 
 		Path pathdir = Paths.get(path);
 		try {
-			Files.createDirectories(pathdir);
+			Files.createDirectories(pathdir); //creation repertoire /data/ si besoin
 		} catch (IOException e) {
 			System.out.println("Erreur creation repertoire data");
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Ecrit dans les fichiers de data
 	 * @param String str: string à ecrire, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
@@ -73,7 +73,7 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Efface la ligne dans les fichiers de data
 	 * @param String str: string à effacer, souvent object.parse() ; Class c, la classe de l'objet (Object.class)
@@ -123,7 +123,7 @@ public class Parser {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Recupere tout le contenue d'un fichier de data
 	 * @param Class c, la classe de l'objet (Object.class), pour cibler quel fichier on veut
