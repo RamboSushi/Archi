@@ -71,6 +71,9 @@ public class SessionTab {
 		initComponent();
 	}
 	
+	/**
+	 * initialise les composants de l'onglet session
+	 */
 	private void initComponent() {
 		
 		//position the elements
@@ -138,6 +141,9 @@ public class SessionTab {
 		
 	}
 	
+	/**
+	 * rafraichit l'affichage des ue
+	 */
 	public void displayUe() {
 		listModelUe.clear();
 		
@@ -147,6 +153,9 @@ public class SessionTab {
 		sessionPanel.repaint();
 	}
 	
+	/**
+	 * rafraichit l'affichage des classes
+	 */
 	public void displayClasse() {
 		listModelClasse.clear();
 		
@@ -156,6 +165,9 @@ public class SessionTab {
 		sessionPanel.repaint();
 	}
 	
+	/**
+	 * rafraichit l'affichage des créneaux
+	 */
 	public void displayCreneau() {
 		listModelCreneau.clear();
 		
@@ -165,6 +177,9 @@ public class SessionTab {
 		sessionPanel.repaint();
 	}
 	
+	/**
+	 * rafraichit l'affichage des sessions
+	 */
 	public void displaySession() {
 		listModelSession.clear();
 		
@@ -174,7 +189,10 @@ public class SessionTab {
 		sessionPanel.repaint();
 	}
 	
-	
+	/**
+	 * Affiche un message pop-up 
+	 * @param str : information sur le message à afficher
+	 */
 	public void writeErrorMessage(String str) {
 		if( str.equals("errorCreateSession") )
 			str = "impossible de creer une session";

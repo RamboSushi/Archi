@@ -74,6 +74,12 @@ public class Controlleur {
 	/*** Listener UETab ***/
 	/**********************/
 	
+	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton ajouter une ue
+	 *
+	 */
 	class createUEListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 
@@ -107,7 +113,12 @@ public class Controlleur {
 			}
 		}
 	 }
-
+	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton supprimer une ue
+	 *
+	 */
 	class deleteUEListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 			int selected = view.getUETab().getIndexListUE();
@@ -137,6 +148,13 @@ public class Controlleur {
 	/*** Listener CreneauTab ***/
 	/***************************/
 	
+	
+	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton ajouter un creneau
+	 *
+	 */
 	class addCreneauListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String day = view.getCreneauTab().getDayCreneau();
@@ -170,6 +188,12 @@ public class Controlleur {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton supprimer un creneau
+	 *
+	 */
 	class deleteCreneauListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			int selected = view.getCreneauTab().getIndexListCreneau();
@@ -198,6 +222,12 @@ public class Controlleur {
 	/*** Listener ClasseTab ***/
 	/**************************/
 
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton ajouter une classe
+	 *
+	 */
+	
 	class createClasseListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 
@@ -231,7 +261,12 @@ public class Controlleur {
 			}
 		}
 	 }
-
+	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton supprimer une classe
+	 *
+	 */
 	class deleteClasseListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 			int selected = view.getClasseTab().getIndexListClasse();
@@ -260,6 +295,11 @@ public class Controlleur {
 	/*** Listener SessionTab ***/
 	/***************************/
 	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton ajouter une session
+	 *
+	 */
 	class addSessionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 			int selectedUe = view.getSessionTab().getIndexListUE();
@@ -291,6 +331,11 @@ public class Controlleur {
 		}
 	}
 	
+	/**
+	 * 
+	 * Appelé lors du clic utilisateur sur le bouton supprimer une session
+	 *
+	 */
 	class deleteSessionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e){
 			int selected = view.getSessionTab().getIndexListSession();
