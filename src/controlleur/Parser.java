@@ -16,7 +16,7 @@ public class Parser {
 	private String path = new String();
 	
 	public Parser() {
-		String OS = new String(System.getProperty("os.name").toLowerCase());
+		String OS = new String(System.getProperty("os.name").toLowerCase()); //detection OS
 		if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
 			path = Paths.get("").toAbsolutePath().toString() + "/data/";
 		} else if (OS.indexOf("win") >= 0) {
@@ -31,14 +31,14 @@ public class Parser {
 
 		Path pathdir = Paths.get(path);
 		try {
-			Files.createDirectories(pathdir);
+			Files.createDirectories(pathdir); //creation repertoire /data/ si besoin
 		} catch (IOException e) {
 			System.out.println("Erreur creation repertoire data");
 			e.printStackTrace();
 		}
 	}
 	
-	public void write(String str, Class<?> c) {
+	public void write(String str, Class<?> c) { // str=string à ecrire (xxx.parse()) - c=classe de l'objet (xxx.class)
 		FileWriter writer = null;
 		File file = null;
 		switch(c.getSimpleName()) {
@@ -67,7 +67,7 @@ public class Parser {
 		}
 	}
 	
-	public void remove(String str, Class<?> c) {
+	public void remove(String str, Class<?> c) { // str=string à retirer (xxx.parse()) - c=classe de l'objet (xxx.class)
 		String allstr = new String();
 		BufferedReader reader = null;
 		FileWriter writer = null;
@@ -113,7 +113,7 @@ public class Parser {
 		}
 	}
 	
-	public ArrayList<Object> read(Class<?> c) {
+	public ArrayList<Object> read(Class<?> c) {// c=classe de l'objet (xxx.class)
 		BufferedReader reader = null;
 		File file = null;
 		ArrayList<Object> obj = new ArrayList<Object>();
