@@ -5,9 +5,9 @@ public class DateScolaire {
 	
 	/**
 	 * Initialise les attributs de DateScolaire 
-	 * @param jour
-	 * @param mois
-	 * @param annee
+	 * @param jour : un entier
+	 * @param mois : un entier
+	 * @param annee : un entier
 	 * @throws IllegalArgumentException
 	 */
 	public DateScolaire(int jour, int mois, int annee) throws IllegalArgumentException {
@@ -21,9 +21,9 @@ public class DateScolaire {
 	}
 	/**
 	 * Initialise les attributs de DateScolaire
-	 * @param jour
-	 * @param mois
-	 * @param annee
+	 * @param jour : un String
+	 * @param mois : un String
+	 * @param annee : un String
 	 * @throws IllegalArgumentException
 	 */
 	public DateScolaire(String jour, String mois, String annee) throws IllegalArgumentException {
@@ -151,7 +151,7 @@ public class DateScolaire {
 	}
 	
 	/**
-	 * Verifie si les attributs du parametre sont egals
+	 * Verifie si les attributs du parametre sont egaux
 	 * a ceux de l'objet
 	 * @param dateScolaire
 	 * @return un boolean 
@@ -167,6 +167,7 @@ public class DateScolaire {
 	
 	/**
 	 * Retourne les attributs separe par un point virgule
+	 * pour enregistrer les donnees dans la BD
 	 * @return string
 	 */
 	public String parse() {
